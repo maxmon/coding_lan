@@ -24,6 +24,7 @@
 	- [13](lisp/13.md)
 	- [14](lisp/14.md)
 - [shell](shell.md)
+- [r](r.md)
 - [git](git.md)
 - [svn](svn.md)
 - [command line](command_line.md)
