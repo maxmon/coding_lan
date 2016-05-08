@@ -1,13 +1,3 @@
->Don't Repeat Yourself
-
->Convention over Configuration
-
-- DRY
-- CoC
-- There are many ways to do it
-
-
-
 ## object method block proc lambda
  
  block / method(封装了call-return 的block) are not objects,just a piece of codes

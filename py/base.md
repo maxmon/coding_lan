@@ -1,7 +1,3 @@
->There is only one way to do it
-
-Guido希望有一种语言，这种语言能够像C语言那样，能够全面调用计算机的功能接口，又可以像shell那样，可以轻松的编程
-
 - <a href="#data structure">data structure(main: 所有序列类型)</a>
 	- <a href="#数据类型">数据类型</a>
 	- <a href="#数字进制">数字进制</a>
