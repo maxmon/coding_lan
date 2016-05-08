@@ -4,7 +4,7 @@
 - ${PWD##*/} ＃当前目录名
 
 
-###var
+## var
 
 $var
 
@@ -16,7 +16,7 @@ $var
 
 read var_name #get input
 
-###Passing Arguments to the Script
+## Passing Arguments to the Script
 
 从1开始计算$n
 
@@ -37,7 +37,7 @@ my_array[4]="carrot"                    # value assignment without a $ and curly
 echo ${#my_array[@]}                    # 5
 echo ${my_array[${#my_array[@]}-1]}     # carrot
 
-###Basic Arithmetic Operators
+## Basic Arithmetic Operators
 
 $((expression))
 
@@ -56,22 +56,22 @@ echo ${STRING:$POS:$LEN}   # his`
 
 - Simple data extraction example:
 
-DATARECORD="last=Clifford,first=Johnny Boy,state=CA"
-COMMA1=`expr index "$DATARECORD" ','`  # 14 position of first comma
-CHOP1FIELD=${DATARECORD:$COMMA1}       #
-COMMA2=`expr index "$CHOP1FIELD" ','`
-LENGTH=`expr $COMMA2 - 6 - 1`
-FIRSTNAME=${CHOP1FIELD:6:$LENGTH}      # Johnny Boy
-echo $FIRSTNAME
+		DATARECORD="last=Clifford,first=Johnny Boy,state=CA"
+		COMMA1=`expr index "$DATARECORD" ','`  # 14 position of first comma
+		CHOP1FIELD=${DATARECORD:$COMMA1}       #
+		COMMA2=`expr index "$CHOP1FIELD" ','`
+		LENGTH=`expr $COMMA2 - 6 - 1`
+		FIRSTNAME=${CHOP1FIELD:6:$LENGTH}      # Johnny Boy
+		echo $FIRSTNAME
 
 - replace string
 
-STRING="to be or not to be"
-echo ${STRING[@]/be/eat}        # to eat or not to be
-echo ${STRING[@]//be/eat}        # to eat or not to eat
-echo ${STRING[@]/#to be/eat now}    # eat now or not to be #replace beginning
-echo ${STRING[@]/%be/eat}        # to be or not to eat #replace end 
-echo ${STRING[@]/%be/be on $(date +%Y-%m-%d)}    # to be or not to be on 2012-06-14 #replace occurrence of substring with shell command output
+		STRING="to be or not to be"
+		echo ${STRING[@]/be/eat}        # to eat or not to be
+		echo ${STRING[@]//be/eat}        # to eat or not to eat
+		echo ${STRING[@]/#to be/eat now}    # eat now or not to be #replace beginning
+		echo ${STRING[@]/%be/eat}        # to be or not to eat #replace end 
+		echo ${STRING[@]/%be/be on $(date +%Y-%m-%d)}    # to be or not to be on 2012-06-14 #replace occurrence of substring with shell command output
 
 
 
@@ -101,7 +101,7 @@ esac
     	2) exit
 	esac
 	
-###Loop
+## Loop
 
 - break
 - continue
@@ -133,7 +133,7 @@ done
   		COUNT=$(($COUNT - 1))
 	done
 	
-###function
+## function
 
 function_name {
   command...
