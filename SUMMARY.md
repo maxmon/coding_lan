@@ -1,6 +1,0 @@
-- [python](py/README.md)
-	- [python基础](base.md)
-	- [python进阶](deep.md)
-	- [python常用类库](libs.md)
-	- [ipython](ipython.md)
-	- [numpy](numpy.md)
