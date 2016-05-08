@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <title>python | </title>
+        <title>ipython | </title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 2.6.7">
@@ -37,10 +37,10 @@
         
     
     
-    <link rel="next" href="../py/base.html" />
+    <link rel="next" href="../py/numpy.html" />
     
     
-    <link rel="prev" href="../index.html" />
+    <link rel="prev" href="../py/libs.html" />
     
 
         
@@ -49,9 +49,9 @@
         
         
     <div class="book"
-        data-level="1"
-        data-chapter-title="python"
-        data-filepath="py/README.md"
+        data-level="1.4"
+        data-chapter-title="ipython"
+        data-filepath="py/ipython.md"
         data-basepath=".."
         data-revision="Sun May 08 2016 13:06:25 GMT+0800 (CST)"
         data-innerlanguage="">
@@ -82,7 +82,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1" data-path="py/index.html">
+        <li class="chapter " data-level="1" data-path="py/index.html">
             
                 
                     <a href="../py/index.html">
@@ -143,7 +143,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4" data-path="py/ipython.html">
+        <li class="chapter active" data-level="1.4" data-path="py/ipython.html">
             
                 
                     <a href="../py/ipython.html">
@@ -226,7 +226,123 @@
                 
                     <section class="normal" id="section-">
                     
-                        <p>python note</p>
+                        <ul>
+<li><a href="#config"> config </a></li>
+<li><a href="#&#x9B54;&#x529B;&#x51FD;&#x6570;">&#x9B54;&#x529B;&#x51FD;&#x6570;</a></li>
+<li><a href="#commond"> commond </a></li>
+<li><a href="#function"> function </a></li>
+<li><a href="#shortkey"> shortkey </a></li>
+</ul>
+<p><a name="config"></a></p>
+<h2 id="config">config</h2>
+<p>enable plots in the notebook: <code>%matplotlib inline</code> </p>
+<p>disable: <code>%matplotlib</code></p>
+<p>ipython nbconvert --to FORMAT notebook.ipynb</p>
+<p><strong>copy and add file on tail</strong> ipython nbconvert --to python</p>
+<ul>
+<li>html</li>
+<li>markdown</li>
+<li>python</li>
+</ul>
+<p><a name="&#x9B54;&#x529B;&#x51FD;&#x6570;"></a></p>
+<h2 id="&#x9B54;&#x529B;&#x51FD;&#x6570;">&#x9B54;&#x529B;&#x51FD;&#x6570;</h2>
+<p>%lsmagic&#x53EF;&#x4EE5;&#x5217;&#x51FA;&#x6240;&#x6709;&#x7684;&#x9B54;&#x529B;&#x51FD;&#x6570;
+magic &#x4E5F;&#x53EF;&#x4EE5;&#x4F7F;&#x7528; &#x9B54;&#x529B;&#x51FD;&#x6570;&#x540E;&#x9762;&#x76F4;&#x63A5;&#x8DDF;&#x95EE;&#x597D;&#x7684;&#x5F62;&#x5F0F; &#x4F8B;&#x5982; %page?</p>
+<pre><code>%quickref # &#x8D77;&#x59CB;&#x90E8;&#x5206;&#x662F;&#x4E00;&#x4E2A;&#x5BF9;IPython&#x5404;&#x79CD;&#x7528;&#x6CD5;&#x7684;&#x5F15;&#x7528;,&#x5176;&#x4F59;&#x90E8;&#x5206;&#x662F;&#x5BF9;%magic&#x51FD;&#x6570;&#x7684;&#x8FF7;&#x4F60;&#x603B;&#x7ED3;&#xFF0C;&#x5305;&#x62EC;&#x5168;&#x90E8;&#x5E2E;&#x52A9;&#x4FE1;&#x606F;&#x7684;&#x9996;&#x884C;
+</code></pre><p>%psearch np.diag* &#x5BFB;&#x627E;&#x51FD;&#x6570;</p>
+<p>numpy.lookfor(&apos;convolution&apos;)</p>
+<p><a name="commond"></a></p>
+<h2 id="commond">commond</h2>
+<p><code>![command]</code></p>
+<ul>
+<li>!pwd</li>
+<li>%alias ls</li>
+<li>commands.getstatusoutput</li>
+</ul>
+<p><code>!pwd</code></p>
+<p>%run runpython&#x6587;&#x4EF6;
+%who &#x67E5;&#x770B;&#x5B9A;&#x4E49;&#x53D8;&#x91CF;
+%who int &#x663E;&#x793A;int&#x7684;&#x53D8;&#x91CF;
+%whos &#x663E;&#x793A;&#x53D8;&#x91CF;&#x503C;
+%who_ls &#x8FD4;&#x56DE;&#x5217;&#x8868;
+%who_ls int
+%reset &#x5220;&#x9664;&#x6240;&#x6709;&#x53D8;&#x91CF;</p>
+<pre><code>%run my.py
+</code></pre><p>%alias&#x5185;&#x5D4C;ls cd &#x7B49;shell&#x547D;&#x4EE4; <code>%alias nss netstat -lptn</code>
+&#x53E6;&#x4E00;&#x4E2A;&#x53EF;&#x4EE5;&#x7B80;&#x6613;&#x6267;&#x884C;shell&#x547D;&#x4EE4;&#x7684;&#x65B9;&#x6CD5;&#xFF0C;&#x662F;&#x5728;&#x547D;&#x4EE4;&#x524D;&#x52A0;&#x4E00;&#x4E2A;&#x611F;&#x53F9;&#x53F7;&#xFF08;!&#xFF09;
+&#x901A;&#x8FC7;$&#x53EF;&#x4EE5;&#x628A;python&#x53D8;&#x91CF;&#x4F20;&#x9012;&#x7ED9;shell&#x547D;&#x4EE4;</p>
+<pre><code>user = &apos;mouren&apos;
+process = &apos;bash&apos;
+!ps aux|grep $user |grep process
+</code></pre><p><a name="function"></a></p>
+<h2 id="function">function</h2>
+<ul>
+<li>%timeit <code>timeit x = 10</code></li>
+<li>%cpaste </li>
+<li>%debug allows you to enter post-mortem debugging. That is to say, if the code you try to execute, raises an exception, using %debug will enter the debugger at the point where the exception was thrown`</li>
+</ul>
+<p><a name="shortkey"></a></p>
+<h2 id="shortkey">shortkey</h2>
+<p>Enter: edit mode</p>
+<p>Shift-Enter: run cell, select below</p>
+<p>Ctrl-Enter: run cell</p>
+<p>Alt-Enter: run cell, insert below</p>
+<h4 id="esc">esc+...</h4>
+<p>y: to code</p>
+<p>m: to markdown</p>
+<p>r: to raw</p>
+<p>1: to heading 1</p>
+<p>2: to heading 2</p>
+<p>3: to heading 3</p>
+<p>4: to heading 4</p>
+<p>5: to heading 5</p>
+<p>6: to heading 6</p>
+<p>Up: select previous cell</p>
+<p>Down: select next cell</p>
+<p>k: select previous cell</p>
+<p>j: select next cell</p>
+<p>Ctrl-k: move cell up</p>
+<p>Ctrl-j: move cell down</p>
+<p>a: insert cell above</p>
+<p>b: insert cell below</p>
+<p>x: cut cell</p>
+<p>c: copy cell</p>
+<p>Shift-v: paste cell above</p>
+<p>v: paste cell below</p>
+<p>z: undo last delete</p>
+<p>d: delete cell (press twice)</p>
+<p>Shift-m: merge cell below</p>
+<p>s: save notebook</p>
+<p>Cmd-s: save notebook</p>
+<p>l: toggle line numbers</p>
+<p>o: toggle output</p>
+<p>Shift-o: toggle output scrolling</p>
+<p>q: close pager</p>
+<p>h: keyboard shortcuts</p>
+<p>i: interrupt kernel (press twice)</p>
+<p>0: restart kernel (press twice)</p>
+<p>Edit Mode (press Enter to enable)</p>
+<p>Tab: code completion or indent</p>
+<p>Shift-Tab: tooltip</p>
+<p>Cmd-]: indent</p>
+<p>Cmd-[: dedent</p>
+<p>Cmd-a: select all</p>
+<p>Cmd-z: undo</p>
+<p>Cmd-Shift-z: redo</p>
+<p>Cmd-y: redo</p>
+<p>Cmd-Up: go to cell start</p>
+<p>Cmd-Down: go to cell end</p>
+<p>Opt-Left: go one word left</p>
+<p>Opt-Right: go one word right</p>
+<p>Opt-Backspace: del word before</p>
+<p>Opt-Delete: del word after</p>
+<p>Esc: command mode</p>
+<p>Ctrl-m: command mode</p>
+<p>Shift-Enter: run cell, select below</p>
+<p>Ctrl-Enter: run cell</p>
+<p>Alt-Enter: run cell, insert below</p>
+<p>Ctrl-Shift--: split cell</p>
+<p>Cmd-s: save notebook</p>
 
                     
                     </section>
@@ -237,10 +353,10 @@
         </div>
 
         
-        <a href="../index.html" class="navigation navigation-prev " aria-label="Previous page: Introduction"><i class="fa fa-angle-left"></i></a>
+        <a href="../py/libs.html" class="navigation navigation-prev " aria-label="Previous page: python常用类库"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../py/base.html" class="navigation navigation-next " aria-label="Next page: python基础"><i class="fa fa-angle-right"></i></a>
+        <a href="../py/numpy.html" class="navigation navigation-next " aria-label="Next page: numpy"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>
