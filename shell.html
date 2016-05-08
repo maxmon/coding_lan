@@ -37,7 +37,7 @@
         
     
     
-    <link rel="next" href="./git.html" />
+    <link rel="next" href="./r.html" />
     
     
     <link rel="prev" href="./lisp/14.html" />
@@ -53,7 +53,7 @@
         data-chapter-title="shell"
         data-filepath="shell.md"
         data-basepath="."
-        data-revision="Sun May 08 2016 22:28:34 GMT+0800 (CST)"
+        data-revision="Sun May 08 2016 23:52:07 GMT+0800 (CST)"
         data-innerlanguage="">
     
 
@@ -490,14 +490,29 @@
             
         </li>
     
-        <li class="chapter " data-level="6" data-path="git.html">
+        <li class="chapter " data-level="6" data-path="r.html">
+            
+                
+                    <a href="./r.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.</b>
+                        
+                        r
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7" data-path="git.html">
             
                 
                     <a href="./git.html">
                 
                         <i class="fa fa-check"></i>
                         
-                            <b>6.</b>
+                            <b>7.</b>
                         
                         git
                     </a>
@@ -505,14 +520,14 @@
             
         </li>
     
-        <li class="chapter " data-level="7" data-path="svn.html">
+        <li class="chapter " data-level="8" data-path="svn.html">
             
                 
                     <a href="./svn.html">
                 
                         <i class="fa fa-check"></i>
                         
-                            <b>7.</b>
+                            <b>8.</b>
                         
                         svn
                     </a>
@@ -520,14 +535,14 @@
             
         </li>
     
-        <li class="chapter " data-level="8" data-path="command_line.html">
+        <li class="chapter " data-level="9" data-path="command_line.html">
             
                 
                     <a href="./command_line.html">
                 
                         <i class="fa fa-check"></i>
                         
-                            <b>8.</b>
+                            <b>9.</b>
                         
                         command line
                     </a>
@@ -535,14 +550,14 @@
             
         </li>
     
-        <li class="chapter " data-level="9" data-path="website.html">
+        <li class="chapter " data-level="10" data-path="website.html">
             
                 
                     <a href="./website.html">
                 
                         <i class="fa fa-check"></i>
                         
-                            <b>9.</b>
+                            <b>10.</b>
                         
                         website
                     </a>
@@ -589,13 +604,13 @@
 <li>which bash</li>
 <li>${PWD##*/} &#xFF03;&#x5F53;&#x524D;&#x76EE;&#x5F55;&#x540D;</li>
 </ul>
-<h3 id="var">var</h3>
+<h2 id="var">var</h2>
 <p>$var</p>
 <p>&#x8F6C;&#x4E49; A backslash &quot;\&quot; is used to escape special character meaning</p>
 <p>&quot;&quot; &#x4FDD;&#x6301;&#x539F;&#x6837; Encapsulating the variable name with &quot;&quot; will preserve any white space values</p>
 <p>``  command&#x547D;&#x4EE4; (known as back-ticks) or with $() </p>
 <p>read var_name #get input</p>
-<h3 id="passing-arguments-to-the-script">Passing Arguments to the Script</h3>
+<h2 id="passing-arguments-to-the-script">Passing Arguments to the Script</h2>
 <p>&#x4ECE;1&#x5F00;&#x59CB;&#x8BA1;&#x7B97;$n</p>
 <pre><code>./bin/my_shopping.sh apple 5 banana 8 &quot;Fruit Basket&quot; 15
 echo $3 --&gt; results with: banana
@@ -611,7 +626,7 @@ echo ${my_array[3]}                     # orange - note that curly brackets are 
 my_array[4]=&quot;carrot&quot;                    # value assignment without a $ and curly brackets
 echo ${#my_array[@]}                    # 5
 echo ${my_array[${#my_array[@]}-1]}     # carrot</p>
-<h3 id="basic-arithmetic-operators">Basic Arithmetic Operators</h3>
+<h2 id="basic-arithmetic-operators">Basic Arithmetic Operators</h2>
 <p>$((expression))</p>
 <ul>
 <li><ul>
@@ -639,24 +654,23 @@ echo ${STRING:$POS:$LEN}   # his</code></li>
 </ul>
 </li>
 <li><p>Simple data extraction example:</p>
-</li>
+<pre><code>  DATARECORD=&quot;last=Clifford,first=Johnny Boy,state=CA&quot;
+  COMMA1=`expr index &quot;$DATARECORD&quot; &apos;,&apos;`  # 14 position of first comma
+  CHOP1FIELD=${DATARECORD:$COMMA1}       #
+  COMMA2=`expr index &quot;$CHOP1FIELD&quot; &apos;,&apos;`
+  LENGTH=`expr $COMMA2 - 6 - 1`
+  FIRSTNAME=${CHOP1FIELD:6:$LENGTH}      # Johnny Boy
+  echo $FIRSTNAME
+</code></pre></li>
+<li><p>replace string</p>
+<pre><code>  STRING=&quot;to be or not to be&quot;
+  echo ${STRING[@]/be/eat}        # to eat or not to be
+  echo ${STRING[@]//be/eat}        # to eat or not to eat
+  echo ${STRING[@]/#to be/eat now}    # eat now or not to be #replace beginning
+  echo ${STRING[@]/%be/eat}        # to be or not to eat #replace end 
+  echo ${STRING[@]/%be/be on $(date +%Y-%m-%d)}    # to be or not to be on 2012-06-14 #replace occurrence of substring with shell command output
+</code></pre></li>
 </ul>
-<p>DATARECORD=&quot;last=Clifford,first=Johnny Boy,state=CA&quot;
-COMMA1=<code>expr index &quot;$DATARECORD&quot; &apos;,&apos;</code>  # 14 position of first comma
-CHOP1FIELD=${DATARECORD:$COMMA1}       #
-COMMA2=<code>expr index &quot;$CHOP1FIELD&quot; &apos;,&apos;</code>
-LENGTH=<code>expr $COMMA2 - 6 - 1</code>
-FIRSTNAME=${CHOP1FIELD:6:$LENGTH}      # Johnny Boy
-echo $FIRSTNAME</p>
-<ul>
-<li>replace string</li>
-</ul>
-<p>STRING=&quot;to be or not to be&quot;
-echo ${STRING[@]/be/eat}        # to eat or not to be
-echo ${STRING[@]//be/eat}        # to eat or not to eat
-echo ${STRING[@]/#to be/eat now}    # eat now or not to be #replace beginning
-echo ${STRING[@]/%be/eat}        # to be or not to eat #replace end 
-echo ${STRING[@]/%be/be on $(date +%Y-%m-%d)}    # to be or not to be on 2012-06-14 #replace occurrence of substring with shell command output</p>
 <h3 id="making-decision">Making Decision</h3>
 <ul>
 <li>== != &lt; &gt; </li>
@@ -680,7 +694,7 @@ case $mycase in
     1) echo &quot;You selected bash&quot;;;
     2) exit
 esac
-</code></pre><h3 id="loop">Loop</h3>
+</code></pre><h2 id="loop">Loop</h2>
 <ul>
 <li>break</li>
 <li>continue</li>
@@ -707,7 +721,7 @@ while [ $COUNT -gt 0 ]; do
       echo &quot;Value of count is: $COUNT&quot;
       COUNT=$(($COUNT - 1))
 done
-</code></pre><h3 id="function">function</h3>
+</code></pre><h2 id="function">function</h2>
 <p>function_name {
   command...
 }</p>
@@ -727,7 +741,7 @@ done
         <a href="./lisp/14.html" class="navigation navigation-prev " aria-label="Previous page: 14"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="./git.html" class="navigation navigation-next " aria-label="Next page: git"><i class="fa fa-angle-right"></i></a>
+        <a href="./r.html" class="navigation navigation-next " aria-label="Next page: r"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>
