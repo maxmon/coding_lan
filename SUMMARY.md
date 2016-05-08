@@ -26,4 +26,5 @@
 - [shell](shell.md)
 - [git](git.md)
 - [svn](svn.md)
+- [command line](command_line.md)
 - [website](website.md)
