@@ -64,7 +64,9 @@ feature
 
 unique and set logic
 
-- np.unique(arr) set(arr)
+- np.unique(arr) 
+- np.set(arr)
+- np.all() np.any() # 尽量不要用pandas的obj.any()和all
 - np.in1d(values, [2, 3, 6]) #check values array items equal 2 or 3 or 6
 
 <a name="sort" ></a>
