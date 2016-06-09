@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <title>12 | </title>
+        <title>linux | </title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 2.6.7">
@@ -37,10 +37,8 @@
         
     
     
-    <link rel="next" href="../lisp/13.html" />
     
-    
-    <link rel="prev" href="../lisp/11.html" />
+    <link rel="prev" href="../website.html" />
     
 
         
@@ -49,9 +47,9 @@
         
         
     <div class="book"
-        data-level="4.12"
-        data-chapter-title="12"
-        data-filepath="lisp/12.md"
+        data-level="11"
+        data-chapter-title="linux"
+        data-filepath="linux/linux.md"
         data-basepath=".."
         data-revision="Thu Jun 09 2016 17:00:48 GMT+0800 (CST)"
         data-innerlanguage="">
@@ -425,7 +423,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="4.12" data-path="lisp/12.html">
+        <li class="chapter " data-level="4.12" data-path="lisp/12.html">
             
                 
                     <a href="../lisp/12.html">
@@ -565,7 +563,7 @@
             
         </li>
     
-        <li class="chapter " data-level="11" data-path="linux/linux.html">
+        <li class="chapter active" data-level="11" data-path="linux/linux.html">
             
                 
                     <a href="../linux/linux.html">
@@ -613,76 +611,118 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="structures-and-the-type-system">Structures and The Type System</h1>
-<p>type
-system</p>
+                        <p>note of <a href="http://www.cnblogs.com/vamei/archive/2012/10/10/2718229.html" target="_blank">vamei blog</a></p>
+<blockquote>
+<p><a href="http://www.howtogeek.com/117939/htg-explains-what-everything-is-a-file-means-on-linux" target="_blank">Everything Is a File</a></p>
+</blockquote>
+<p>&#x4E00;&#x5207;&#x7CFB;&#x7EDF;&#x8D44;&#x6E90;&#x90FD;&#x662F;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#x63CF;&#x8FF0;&#x7B26;</p>
 <ul>
-<li>visible</li>
-<li>extensible  -- create new types at any time</li>
+<li><a href="#bootstrap">bootstrap&#x542F;&#x52A8;&#x987A;&#x5E8F;</a></li>
+<li><a href="#file">&#x6587;&#x4EF6;&#x7BA1;&#x7406;&#xFF1A;ln&#xFF0C;umask&#x6743;&#x9650;</a></li>
+<li><a href="#structure">&#x67B6;&#x6784;</a></li>
+<li><a href="#command">&#x5E38;&#x7528;&#x547D;&#x4EE4;</a></li>
+<li><a href="#filestream">&#x8F93;&#x5165;&#x8F93;&#x51FA;&#x6587;&#x672C;&#x6D41;</a></li>
+<li><a href="#process">&#x8FDB;&#x7A0B;&#x673A;&#x5236;&#x4E0E;&#x201C;&amp;&#x201D;&#x540E;&#x53F0;&#x8FD0;&#x884C;</a></li>
+<li><a href="#signal">&#x5185;&#x6838;&#x7684;&#x4FE1;&#x53F7;&#x673A;&#x5236;</a></li>
+<li><a href="#auth">&#x6743;&#x9650;&#xFF1A;&#x6700;&#x5C0F;&#x6743;&#x9650;&#x539F;&#x5219;</a></li>
+<li><a href="#mutex">&#x591A;&#x7EBF;&#x7A0B;&#x4E0E;&#x540C;&#x6B65;:&#x540C;&#x6B65; &#x4E92;&#x65A5;&#x9501;(mutex)&#xFF0C;&#x6761;&#x4EF6;&#x53D8;&#x91CF;(condition variable)&#x548C;&#x8BFB;&#x5199;&#x9501;(reader-writer lock)</a></li>
+<li><a href="#ipc">IPC</a></li>
 </ul>
-<h2 id="typep-and-typeof">TYPEP AND TYPE-OF</h2>
-<pre><code>(typep 3 &#x2019;number) &#x21D2; t
-(typep 3 &#x2019;integer) &#x21D2; t
-(typep 3 &#x2019;float) &#x21D2; nil
-(typep &#x2019;foo &#x2019;symbol) &#x21D2; t
+<p><a name="bootstrap"></a></p>
+<h2 id="bootstrap&#x542F;&#x52A8;&#x987A;&#x5E8F;">bootstrap&#x542F;&#x52A8;&#x987A;&#x5E8F;</h2>
+<p><a href="http://www.cnblogs.com/vamei/archive/2012/09/05/2672039.html" target="_blank">BIOS -&gt; MBR -&gt; boot loader -&gt; kernel -&gt; init process -&gt; login</a></p>
+<p><a name="file"></a></p>
+<h2 id="&#x6587;&#x4EF6;&#x7BA1;&#x7406;">&#x6587;&#x4EF6;&#x7BA1;&#x7406;</h2>
+<p>$PWD Linux&#x4F1A;&#x5728;&#x8FDB;&#x7A0B;&#x4E2D;&#xFF0C;&#x7EF4;&#x62A4;&#x4E00;&#x4E2A;&#x5DE5;&#x4F5C;&#x76EE;&#x5F55;(pre sent working directory)&#x7684;&#x53D8;&#x91CF;</p>
+<p>&#x6587;&#x4EF6;&#x51FA;&#x73B0;&#x5728;&#x4E00;&#x4E2A;&#x76EE;&#x5F55;&#x6587;&#x4EF6;&#x4E2D;&#x65F6;&#xFF0C;&#x786C;&#x94FE;&#x63A5;(hard link)&#x3002;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#x5141;&#x8BB8;&#x51FA;&#x73B0;&#x5728;&#x591A;&#x4E2A;&#x76EE;&#x5F55;&#x4E2D;&#xFF0C;&#x591A;&#x4E2A;&#x786C;&#x94FE;&#x63A5;&#x3002;&#x5F53;&#x786C;&#x94FE;&#x63A5;&#x7684;&#x6570;&#x76EE;(link count)&#x964D;&#x4E3A;0&#x65F6;&#xFF0C;&#x6587;&#x4EF6;&#x4F1A;&#x88AB;Linux&#x5220;&#x9664;&#x3002;&#x6240;&#x4EE5;&#x5F88;&#x591A;&#x65F6;&#x5019;&#xFF0C;unlink&#x4E0E;remove&#x5728;Linux&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x4E2D;&#x662F;&#x4E00;&#x4E2A;&#x610F;&#x601D;&#x3002;&#x7531;&#x4E8E;&#x8F6F;&#x94FE;&#x63A5;(soft link)&#x7684;&#x5E7F;&#x6CDB;&#x4F7F;&#x7528;(soft link&#x4E0D;&#x4F1A;&#x5F71;&#x54CD;link count&#xFF0C;&#x800C;&#x4E14;&#x53EF;&#x4EE5;&#x8DE8;&#x8D8A;&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;)</p>
+<p>&#x8F6F;&#x94FE;&#x63A5;(soft link&#xFF0C;&#x4E5F;&#x53EB;&#x505A;symbolic link)&#x5C31;&#x662F;linux&#x7684;&#x5FEB;&#x6377;&#x65B9;&#x5F0F;&#x3002;&#x8F6F;&#x94FE;&#x63A5;&#x672C;&#x8D28;&#x4E0A;&#x662F;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#xFF0C;&#x5B83;&#x7684;&#x6587;&#x4EF6;&#x7C7B;&#x578B;&#x662F;symbolic link&#x3002;&#x5728;&#x8FD9;&#x4E2A;&#x6587;&#x4EF6;&#x4E2D;&#xFF0C;&#x5305;&#x542B;&#x6709;&#x94FE;&#x63A5;&#x6307;&#x5411;&#x7684;&#x6587;&#x4EF6;&#x7684;&#x7EDD;&#x5BF9;&#x8DEF;&#x5F84;</p>
+<p>ls -l file &#x6587;&#x4EF6;&#x6743;&#x9650;&#x7684;&#x4FE1;&#x606F;&#x4FDD;&#x5B58;&#x5728;&#x6587;&#x4EF6;&#x9644;&#x52A0;&#x4FE1;&#x606F;(metadata)</p>
+<p>&#x521B;&#x5EFA;&#x6587;&#x4EF6;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x6BD4;&#x5982;&#x4F7F;&#x7528;touch&#xFF0C;&#x5B83;&#x4F1A;&#x5C1D;&#x8BD5;&#x5C06;&#x65B0;&#x5EFA;&#x6587;&#x4EF6;&#x521B;&#x5EFA;&#x4E3A;&#x6743;&#x9650;666&#xFF0C;&#x4E5F;&#x5C31;&#x662F;rw-rw-rw-&#x3002;&#x4F46;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x8981;&#x53C2;&#x7167;&#x6743;&#x9650;mask&#x6765;&#x770B;&#x662F;&#x5426;&#x771F;&#x6B63;&#x5C06;&#x6587;&#x4EF6;&#x521B;&#x5EFA;&#x4E3A;666&#x3002;&#x6743;&#x9650;mask&#x8868;&#x793A;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x4E0D;&#x5141;&#x8BB8;&#x8BBE;&#x7F6E;&#x7684;&#x6743;&#x9650;&#x4F4D;&#xFF0C;&#x6BD4;&#x5982;&#x8BF4;037(----wxrwx)&#x7684;&#x6743;&#x9650;mask&#x610F;&#x5473;&#x7740;&#x4E0D;&#x5141;&#x8BB8;&#x8BBE;&#x7F6E;&#x8BBE;&#x7F6E;group&#x7684;wx&#x4F4D;&#x548C;other&#x7684;rwx&#x4F4D;&#x3002;&#x5982;&#x679C;&#x662F;&#x8FD9;&#x4E2A;&#x6743;&#x9650;mask&#x7684;&#x8BDD;&#xFF0C;&#x6700;&#x7EC8;&#x7684;&#x6587;&#x4EF6;&#x6743;&#x9650;&#x662F;rw-r----- (group&#x7684;w&#x4F4D;&#x548C;other&#x7684;rw&#x4F4D;&#x88AB;mask)&#x3002;</p>
+<p>&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;</p>
+<p>$umask 022</p>
+<p>&#x7684;&#x65B9;&#x5F0F;&#x6539;&#x53D8;&#x6743;&#x9650;mask&#x3002;</p>
+<p><a name="structure"></a></p>
+<h2 id="&#x67B6;&#x6784;">&#x67B6;&#x6784;</h2>
+<p><img src="linux_structure.png" alt="&#x67B6;&#x6784;&#x56FE;"></p>
+<p><a name="command"></a></p>
+<h2 id="command">command</h2>
+<ul>
+<li>type</li>
+<li>sudo</li>
+<li>which #&#x5728;&#x9ED8;&#x8BA4;&#x8DEF;&#x5F84;&#x4E2D;&#x641C;&#x7D22;&#x547D;&#x4EE4;&#xFF0C;&#x8FD4;&#x56DE;&#x8BE5;&#x547D;&#x4EE4;&#x7684;&#x7EDD;&#x5BF9;&#x8DEF;&#x5F84;</li>
+<li>whereis #&#x5728;&#x76F8;&#x5BF9;&#x6BD4;&#x8F83;&#x5927;&#x7684;&#x8303;&#x56F4;&#x641C;&#x7D22;&#x547D;&#x4EE4;&#xFF0C;&#x8FD4;&#x56DE;&#x8BE5;&#x547D;&#x4EE4;&#x7684;&#x7EDD;&#x5BF9;&#x8DEF;&#x5F84;</li>
+<li>whatis #&#x7528;&#x5F88;&#x7B80;&#x77ED;&#x7684;&#x4E00;&#x53E5;&#x8BDD;&#x6765;&#x4ECB;&#x7ECD;&#x547D;&#x4EE4;</li>
+<li>man #&#x67E5;&#x8BE2;&#x7B80;&#x660E;&#x7684;&#x5E2E;&#x52A9;&#x624B;&#x518C;</li>
+<li>info #&#x67E5;&#x8BE2;&#x66F4;&#x8BE6;&#x7EC6;&#x7684;&#x5E2E;&#x52A9;&#x4FE1;&#x606F;</li>
+<li>history #&#x6765;&#x67E5;&#x8BE2;&#x4E4B;&#x524D;&#x5728;&#x547D;&#x4EE4;&#x884C;&#x7684;&#x64CD;&#x4F5C;</li>
+</ul>
+<p>&#x4F7F;&#x7528;Tab&#x81EA;&#x52A8;&#x8865;&#x9F50;&#xFF0C;&#x5411;&#x4E0A;&#x7BAD;&#x5934;&#x67E5;&#x8BE2;&#x5386;&#x53F2;;&#x4E2D;&#x9014;&#x505C;&#x6B62;&#xFF0C;Ctrl + c;&#x6682;&#x65F6;&#x505C;&#x6B62;&#xFF0C;Ctrl + z&#x3002;</p>
+<p><a href="http://www.cnblogs.com/vamei/archive/2012/09/13/2682519.html" target="_blank">&#x6587;&#x4EF6;&#x7BA1;&#x7406;&#x76F8;&#x5173;&#x547D;&#x4EE4;</a></p>
+<p><a name="filestream"></a></p>
+<h2 id="&#x6587;&#x672C;&#x6D41;">&#x6587;&#x672C;&#x6D41;</h2>
+<blockquote>
+<p>&quot;everything is a file&quot;&#x662F;&#x901A;&#x5E38;&#x6240;&#x6D41;&#x4F20;&#x7684;UNIX&#x8BBE;&#x8BA1;&#x7684;&#x54F2;&#x5B66;&#x4E4B;&#x4E00;&#xFF0C;&#x4F46;Linus&#x5BF9;&#x6B64;&#x4F5C;&#x51FA;&#x7EA0;&#x6B63;&#xFF0C;&#x6539;&#x4E3A;&quot;everything is a stream of bytes&quot;</p>
+</blockquote>
+<p>Linux&#x6267;&#x884C;&#x4E00;&#x4E2A;&#x7A0B;&#x5E8F;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x4F1A;&#x81EA;&#x52A8;&#x6253;&#x5F00;&#x4E09;&#x4E2A;&#x6D41;&#xFF0C;&#x6807;&#x51C6;&#x8F93;&#x5165;(standard input)&#xFF0C;&#x6807;&#x51C6;&#x8F93;&#x51FA;(standard output)&#xFF0C;&#x6807;&#x51C6;&#x9519;&#x8BEF;(standard error)</p>
+<ul>
+<li>&gt; &gt;&gt;&#xFF08;append&#xFF09;&#x91CD;&#x65B0;&#x5B9A;&#x5411;&#x6807;&#x51C6;&#x8F93;&#x51FA;</li>
+<li>&lt; &#x6539;&#x53D8;&#x6807;&#x51C6;&#x8F93;&#x5165;&#x3002;&#x6BD4;&#x5982;cat&#x547D;&#x4EE4;&#xFF0C;&#x5B83;&#x53EF;&#x4EE5;&#x4ECE;&#x6807;&#x51C6;&#x8F93;&#x5165;&#x8BFB;&#x5165;&#x6587;&#x672C;&#x6D41;&#xFF0C;&#x5E76;&#x8F93;&#x51FA;&#x5230;&#x6807;&#x51C6;&#x8F93;&#x51FA; <code>cat &lt; a.txt</code></li>
+<li>echo &#x5C06;&#x6587;&#x672C;&#x6D41;&#x5BFC;&#x5411;&#x6807;&#x51C6;&#x8F93;&#x51FA;</li>
+<li>&gt;&amp; &#x91CD;&#x65B0;&#x5B9A;&#x5411;&#x6807;&#x51C6;&#x8F93;&#x51FA;&#x548C;&#x6807;&#x51C6;&#x9519;&#x8BEF;</li>
+<li>2&gt; &#x91CD;&#x65B0;&#x5B9A;&#x5411;&#x6807;&#x51C6;&#x9519;&#x8BEF;</li>
+<li>| &#x7BA1;&#x9053;&#x53EF;&#x4EE5;&#x5C06;&#x4E00;&#x4E2A;&#x547D;&#x4EE4;&#x7684;&#x8F93;&#x51FA;&#x5BFC;&#x5411;&#x53E6;&#x4E00;&#x4E2A;&#x547D;&#x4EE4;&#x7684;&#x8F93;&#x5165;</li>
+<li>wc [-lwm] path<ul>
+<li>l  &#xFF1A;&#x4EC5;&#x5217;&#x51FA;&#x884C;&#xFF1B;</li>
+<li>w  &#xFF1A;&#x4EC5;&#x5217;&#x51FA;&#x591A;&#x5C11;&#x5B57;(&#x82F1;&#x6587;&#x5355;&#x5B57;)&#xFF1B;</li>
+<li>m  &#xFF1A;&#x591A;&#x5C11;&#x5B57;&#x7B26;&#xFF1B;</li>
+</ul>
+</li>
+</ul>
+<p><a name="process"></a></p>
+<h2 id="process">process</h2>
+<p>first process : init</p>
+<p>fork(&#x590D;&#x5236;&#x5185;&#x5B58;&#x7A7A;&#x95F4;&#xFF0C;&#x521B;&#x5EFA;&#x9644;&#x52A0;&#x4FE1;&#x606F;),exec(&#x6E05;&#x7A7A;&#x81EA;&#x8EAB;&#x5185;&#x5B58;&#x7A7A;&#x95F4;&#x7684;text, global data, heap&#x548C;stack&#xFF0C;&#x5E76;&#x6839;&#x636E;&#x65B0;&#x7684;&#x7A0B;&#x5E8F;&#x6587;&#x4EF6;&#x91CD;&#x5EFA;,&#x8FD0;&#x884C;),wait(exit code 0 &#x6B63;&#x5E38;&#x7ED3;&#x675F;)</p>
+<p>&#x8FDB;&#x7A0B;&#x7EC4; (process group) pgid &#x53EF;&#x4EE5;&#x5C06;&#x4FE1;&#x53F7;&#x53D1;&#x9001;&#x7ED9;&#x4E00;&#x4E2A;&#x8FDB;&#x7A0B;&#x7EC4;</p>
+<p>&#x4F1A;&#x8BDD; (session) &#x8FDB;&#x7A0B;&#x7EC4;&#x7684;&#x9886;&#x5BFC;&#x8FDB;&#x7A0B;&#x521B;&#x5EFA; &#x610F;&#x4E49;&#x5728;&#x4E8E;&#x5C06;&#x591A;&#x4E2A;&#x5DE5;&#x4F5C;&#x56CA;&#x62EC;&#x5728;&#x4E00;&#x4E2A;&#x7EC8;&#x7AEF;&#xFF0C;&#x5E76;&#x53D6;&#x5176;&#x4E2D;&#x7684;&#x4E00;&#x4E2A;&#x5DE5;&#x4F5C;&#x4F5C;&#x4E3A;&#x524D;&#x53F0;&#xFF0C;&#x6765;&#x76F4;&#x63A5;&#x63A5;&#x6536;&#x8BE5;&#x7EC8;&#x7AEF;&#x7684;&#x8F93;&#x5165;&#x8F93;&#x51FA;&#x4EE5;&#x53CA;&#x7EC8;&#x7AEF;&#x4FE1;&#x53F7;&#x3002; &#x5176;&#x4ED6;&#x5DE5;&#x4F5C;&#x5728;&#x540E;&#x53F0;&#x8FD0;&#x884C;&#x3002;</p>
+<p><code>$ping localhost &gt; log &amp;</code> &#x5728;&#x672B;&#x5C3E;&#x52A0;&#x4E0A;&amp;&#x65B9;&#x5F0F;&#x8BA9;&#x5B83;&#x5728;&#x540E;&#x53F0;&#x8FD0;</p>
+<p> <a href="http://www.cnblogs.com/vamei/archive/2012/10/07/2713023.html" target="_blank">&#x8BE6;&#x89C1;</a></p>
+<p><a name="singal"></a></p>
+<h2 id="singal">singal</h2>
+<p>&#x4FE1;&#x53F7;&#x662F;&#x7531;&#x5185;&#x6838;(kernel)&#x7BA1;&#x7406;</p>
+<p>&#x4FE1;&#x53F7;&#x6240;&#x4F20;&#x9012;&#x7684;&#x6BCF;&#x4E00;&#x4E2A;&#x6574;&#x6570;&#x90FD;&#x88AB;&#x8D4B;&#x4E88;&#x4E86;&#x7279;&#x6B8A;&#x7684;&#x610F;&#x4E49;&#xFF0C;&#x5E76;&#x6709;&#x4E00;&#x4E2A;&#x4FE1;&#x53F7;&#x540D;&#x5BF9;&#x5E94;&#x8BE5;&#x6574;&#x6570;&#x3002;&#x5E38;&#x89C1;&#x7684;&#x4FE1;&#x53F7;&#x6709;SIGINT, SIGQUIT, SIGCONT, SIGTSTP, SIGALRM</p>
+<p>$man 7 signal</p>
+<p>kill -SIGCONT  27397 #&#x6765;&#x4F20;&#x9012;SIGCONT&#x4FE1;&#x53F7;&#x7ED9;ping&#x8FDB;&#x7A0B;&#x3002;</p>
+<p><a name="auth"></a></p>
+<h2 id="&#x6743;&#x9650;"><a href="http://www.cnblogs.com/vamei/archive/2012/10/07/2713593.html" target="_blank">&#x6743;&#x9650;</a></h2>
+<p>&#x5F53;&#x6211;&#x4EEC;&#x53BB;&#x7F16;&#x5199;&#x4E00;&#x4E2A;Linux&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x5C31;&#x8981;&#x6CE8;&#x610F;&#x5728;&#x7A0B;&#x5E8F;&#x4E2D;&#x5B9E;&#x73B0;&#x4EE5;&#x4E0A;&#x5207;&#x6362;(&#x6709;&#x5FC5;&#x8981;&#x7684;&#x524D;&#x63D0;&#x4E0B;)&#xFF0C;&#x4EE5;&#x4FBF;&#x8BA9;&#x6211;&#x4EEC;&#x7684;&#x7A0B;&#x5E8F;&#x7B26;&#x5408;&quot;&#x6700;&#x5C0F;&#x6743;&#x9650;&quot;&#x7684;&#x539F;&#x5219;&#xFF0C;&#x4E0D;&#x7ED9;&#x7CFB;&#x7EDF;&#x7559;&#x4E0B;&#x53EF;&#x80FD;&#x7684;&#x5B89;&#x5168;&#x9690;&#x60A3;</p>
+<p><a name="mutex"></a></p>
+<h2 id="linux&#x591A;&#x7EBF;&#x7A0B;&#x4E0E;&#x540C;&#x6B65;">Linux&#x591A;&#x7EBF;&#x7A0B;&#x4E0E;&#x540C;&#x6B65;</h2>
+<p>&#x540C;&#x6B65; &#x4E92;&#x65A5;&#x9501;(mutex)&#xFF0C;&#x6761;&#x4EF6;&#x53D8;&#x91CF;(condition variable)&#x548C;&#x8BFB;&#x5199;&#x9501;(reader-writer lock)&#x6765;&#x540C;&#x6B65;&#x8D44;&#x6E90;</p>
+<ul>
+<li>mutex<ul>
+<li>lock</li>
+<li>unlock</li>
+</ul>
+</li>
+<li>condition variable &#x6761;&#x4EF6;&#x53D8;&#x91CF;&#x7279;&#x522B;&#x9002;&#x7528;&#x4E8E;&#x591A;&#x4E2A;&#x7EBF;&#x7A0B;&#x7B49;&#x5F85;&#x67D0;&#x4E2A;&#x6761;&#x4EF6;&#x7684;&#x53D1;&#x751F;</li>
+<li>reader-writer &#x5171;&#x4EAB;&#x8BFB;&#x53D6;&#xFF08;&#x53EF;&#x83B7;&#x53D6;R&#x9501;&#xFF0C;&#x4E0D;&#x53EF;&#x5199;&#x5165;&#xFF09;&#xFF0C;&#x4E92;&#x65A5;&#x5199;&#x5165;</li>
+</ul>
+<p><a name="ipc"></a></p>
+<h2 id="ipc">IPC</h2>
+<p>&#x67D0;&#x4E2A;&#x8FDB;&#x7A0B;&#x7EC8;&#x7ED3;&#x4E4B;&#x540E;&#xFF0C;&#x8BE5;&#x8FDB;&#x7A0B;&#x9700;&#x8981;&#x88AB;&#x5176;&#x7236;&#x8FDB;&#x7A0B;&#x8C03;&#x7528;wait&#xFF0C;&#x5426;&#x5219;&#x8FDB;&#x7A0B;&#x6210;&#x4E3A;&#x50F5;&#x5C38;&#x8FDB;&#x7A0B;(Zombie)</p>
+<ul>
+<li>pipe &#x7F13;&#x51B2;&#x6587;&#x4EF6;&#x6D41;</li>
+<li>&#x4F20;&#x7EDF;IPC<ul>
+<li>semaphore + &#x5171;&#x4EAB;&#x5185;&#x5B58;<ul>
+<li>semaphore &#x8BA1;&#x6570;&#x9501; vs mutex(n)</li>
+<li>&#x5171;&#x4EAB;&#x5185;&#x5B58; &#x5141;&#x8BB8;&#x591A;&#x4E2A;&#x8FDB;&#x7A0B;&#x76F4;&#x63A5;&#x5BF9;&#x540C;&#x4E00;&#x4E2A;&#x5185;&#x5B58;&#x533A;&#x57DF;&#x76F4;&#x63A5;&#x64CD;&#x4F5C;&#xFF0C;&#x6548;&#x7387;&#x6700;&#x9AD8;&#x7684;IPC&#x65B9;&#x5F0F; vs gloabl var</li>
+</ul>
+</li>
+<li>&#x6D88;&#x606F;&#x961F;&#x5217;(message queue)&#x4E0E;PIPE&#x76F8;&#x7C7B;&#x4F3C;&#x3002;&#x5B83;&#x4E5F;&#x662F;&#x5EFA;&#x7ACB;&#x4E00;&#x4E2A;&#x961F;&#x5217;</li>
+</ul>
+</li>
+</ul>
 
-(type-of 3.5) &#x21D2; short-float
-(type-of &#x2019;(bat breath)) &#x21D2; cons
-(type-of &quot;Phooey&quot;) &#x21D2; (simple-string 6)
-</code></pre><h2 id="defining-structures">DEFINING STRUCTURES</h2>
-<pre><code>(defstruct starship
-(name nil)
-(speed 0)
-(condition &#x2019;green)
-(shields &#x2019;down))
-
-&gt; (setf s2 &#x2019;#s(starship speed (warp 3)
-condition red
-shields up))
-#S(STARSHIP NAME NIL
-SPEED (WARP 3)
-CONDITION RED
-SHIELDS UP)
-</code></pre><h2 id="type-predicates-for-structures">TYPE PREDICATES FOR STRUCTURES</h2>
-<pre><code>(starship-p s2) &#x21D2; t
-(typep s1 &#x2019;starship) &#x21D2; t
-(type-of s2) &#x21D2; starship
-</code></pre><h2 id="accessing-and-modifying-structures">ACCESSING AND MODIFYING STRUCTURES</h2>
-<p>When a new structure is defined, DEFSTRUCT creates accessor functions for
-each of its components</p>
-<pre><code>(starship-speed s2) &#x21D2; (warp 3)
-
-(setf (starship-name s1) &quot;Enterprise&quot;)
-</code></pre><h2 id="keyword-arguments-to-constructor-functions">KEYWORD ARGUMENTS TO CONSTRUCTOR FUNCTIONS</h2>
-<pre><code>&gt; (setf s3 (make-starship :name &quot;Reliant&quot;
-:shields &#x2019;damaged))
-</code></pre><h2 id="changing-structure-definitions">CHANGING STRUCTURE DEFINITIONS</h2>
-<h2 id="lisp-toolkit-describe-and-inspect">Lisp Toolkit: DESCRIBE and INSPECT</h2>
-<pre><code>&gt; (describe &#x2019;fred)
-FRED is an internal symbol in package USER.
-
-&gt; (describe s1)
-#S(STARSHIP ...) is a structure of type STARSHIP.
-NAME &quot;Enterprise&quot;
-SPEED 1
-CONDITION YELLOW
-SHIELDS UP
-</code></pre><h2 id="equality-of-structures">EQUALITY OF STRUCTURES</h2>
-<p>The EQUAL function does not treat two distinctstructures as equal even if
-they have the same components</p>
-<p>However, the EQUALP function will treat two structures as equal if they
-are of the same type and all their components are equal.</p>
-<h2 id="inheritancefrom-other-structures">INHERITANCEFROM OTHER STRUCTURES</h2>
-<p>The fields of a STARSHIP structure include all the componentsof SHIP</p>
-<pre><code>(defstruct ship
-(name nil)
-(captain nil)
-(crew-size nil))
-
-(defstruct (starship (:include ship))
-(weapons nil)
-(shields nil))
-</code></pre>
                     
                     </section>
                 
@@ -692,10 +732,8 @@ are of the same type and all their components are equal.</p>
         </div>
 
         
-        <a href="../lisp/11.html" class="navigation navigation-prev " aria-label="Previous page: 11"><i class="fa fa-angle-left"></i></a>
+        <a href="../website.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: website"><i class="fa fa-angle-left"></i></a>
         
-        
-        <a href="../lisp/13.html" class="navigation navigation-next " aria-label="Next page: 13"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>
