@@ -121,4 +121,7 @@ cost-function的偏导数
 
 总体population数量无穷时的总体mean
 
+## 决策树
+
+模拟人类对概念进行判定的树形流程
 

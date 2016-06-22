@@ -1,6 +1,8 @@
 - [一句话](one-word.md)
 - [readings]()
 	- [黑客与画家](reading/黑客与画家/黑客与画家.md)
+- [machine learning]()
+	- [review1](ml/review1.md)
 - [编程语言]()
 	- [re正则表达式](regular-expression.md)
 	- [python](py/python.md)
