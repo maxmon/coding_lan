@@ -1,5 +1,15 @@
 [guide](http://www.runoob.com/cplusplus/cpp-operators.html)
 
+## 字符串处理
+
+- strcat(des, sour) 将第二个字符串的一份**添加**到第一个字符串的结尾
+- strlen 字符串长度
+- strcpy(des, sour)将第二个字符串的一份**拷贝**到第一个字符串
+-  snprintf(char *str, size_t size, const char *format, ...) 将可变个参数(...)按照format格式化成字符串，然后将其复制到str中
+- char *strstr( char *str, char * substr ); 返回字符串str中第一次出现子串substr的地址；如果没有检索到子串，则返回NULL
+- char *strchr(const char *s,char c);查找字符串s中首次出现字符c的位置
+
+
 ## var
 
 - NULL
@@ -73,3 +83,41 @@ protected 成员变量或函数与私有成员十分相似，但有一点不同�
 	      void setSmallWidth( double wid );
 	      double getSmallWidth( void );
 	};
+	
+## struct union
+
+	typedef union DataValue1
+	{
+	    int v_int;
+	}DataValue1;
+	typedef union DataValue2
+	{
+	    int v_int;
+	}DataValue2;
+	
+	typedef struct DataNode
+	{
+	    DataType type;
+	    union
+		{
+		DataValue1 val1;
+		DataValue2 val2;	
+		} info;
+	}DataNode;
+	
+	DataNode* dn = NULL;
+	...
+	dn->info.val1.v_int
+	
+#### 查找
+
+	brand_dict->catalog.find(scope.scope[i]) != brand_dict->catalog.end() // 找得到
+## printf
+
+- %s char* or string
+- %d int
+- %p 指针
+- %c char
+- %s &char_arr[0] or char_arr;  char数组 
+- %s str.c_str(); string类型
+

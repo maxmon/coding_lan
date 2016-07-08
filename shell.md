@@ -3,6 +3,10 @@
 - which bash
 - ${PWD##*/} ＃当前目录名
 
+## note
+
+- shell加载的file修改过需要 `source path`重新加载下
+
 
 ## var
 

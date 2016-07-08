@@ -1,6 +1,3 @@
-
-
-
 - [git setup](https://help.github.com/articles/set-up-git/)
 
 - [ssh key](https://help.github.com/articles/generating-ssh-keys/)

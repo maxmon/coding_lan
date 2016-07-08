@@ -1,8 +1,8 @@
 ##command
 
- . indicates a hidden file.
+ .\* indicates a hidden file.
 
-- cd *"change dir"*
+- find . -name 'my*'
 - ls 
 	- -a Files started with a dot are hidden,use -a to show all
 	- -l format-info >>> rights-links-owner-group-size-date&time-name
