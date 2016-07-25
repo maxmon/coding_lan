@@ -1,4 +1,4 @@
-##单个字符:
+## 单个字符:
 
 .          任意的一个字符
 
@@ -26,7 +26,7 @@ a|b        字符a或字符b
 
  
 
-##重复
+## 重复
 
 紧跟在单个字符之后，表示多个这样类似的字符
 
@@ -52,7 +52,7 @@ a+b              aaaaab
 
  
 
-##位置
+## 位置
 
 ^         字符串的起始位置
 
@@ -64,7 +64,7 @@ $         字符串的结尾位置
 
 ^ab.*c$          abeec               cabeec (如果用re.search(), 将无法找到。)
 
-##返回控制
+## 返回控制
 
 我们有可能对搜索的结果进行进一步精简信息。比如下面一个正则表达式：
 
@@ -83,7 +83,23 @@ output_(\d{4})
 	import re
 	m = re.search("output_(?P<year>\d{4})", "output_1986.txt")   #(?P<name>...) 为group命名
 	print(m.group("year"))
-	
+
+## [function](http://www.runoob.com/python/python-reg-expressions.html)
+
+- re.match(pattern, string, flags=0) 尝试从字符串的起始位置匹配一个模式，如果不是起始位置匹配成功的话，match()就返回none
+- re.search 扫描整个字符串并返回第一个成功的匹配。
+- re.sub(pattern, repl, string, max=0)
+- re split
+
+```
+import re
+
+print re.split(r'\d+', 'one1two2three3four4')
+ 
+### output ###
+# ['one', 'two', 'three', 'four', '']
+```
+
 ## demos
 
 #### 校验密码强度
