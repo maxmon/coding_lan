@@ -400,27 +400,50 @@ None不是保留关键字，而是NoneType的一个实例
 - zip()多个等长的列 # for (a,b,c) in zip(ta,tb,tc):
 
 <a name="生成器" ></a>
+## [生成器 yield](http://pyzh.readthedocs.io/en/latest/the-python-yield-keyword-explained.html)
 
-## 生成器
+```
+class count_iterator(object):
 
-生成器(generator)的主要目的是构成一个用户自定义的循环对象。
+    def __iter__(self):
+        return self
+ 
+    def next(self):
+        pass
+```
 
-生成器的编写方法和函数定义类似，只是在return的地方改为yield
+`a_l.extend(b_l)` 是一个迭代器方法
 
-def gen():
-    a = 100
-    yield a
-    a = a*8
-    yield a
-    yield 1000
-    
-t=gen(5)
-t.next()
-t.next()
+```
+但是在你的代码中的是一个生成器，这是不错的，因为：
 
-又可以写成生成器表达式(Generator Expression):
+你不必读两次所有的值
+你可以有很多子对象，但不必叫他们都存储在内存里面。
+并且这很奏效，因为Python不关心一个方法的参数是不是个链表。Python只希望它是个可以迭代的，所以这个参数可以是链表，元组，字符串，生成器... 这叫做 duck typing,这也是为何Python如此棒的原因之一
+```
 
-G = (x for x in range(4))
+生成器是可以迭代的，但是你 只可以读取它一次 ，因为它并不把所有的值放在内存中，它是实时地生成数据
+
+```
+mygenerator = (x*x for x in range(3))
+	for i in mygenerator :
+...
+
+def createGenerator() :
+...    mylist = range(3)
+...    for i in mylist :
+...        yield i*i	
+
+```
+
+yield 是一个类似 return 的关键字，只是这个函数返回的是个生成器
+
+调用这个函数的时候，函数内部的代码并不立马执行 ，这个函数只是返回一个生成器对象
+
+迭代是一个实现可迭代对象(实现的是 __iter__() 方法)和迭代器(实现的是 __next__() 方法)的过程。
+
+itertools包含了很多特殊的迭代方法
+
 
 <a name="I/O file读写" ></a>
 
@@ -484,7 +507,83 @@ and or not
 		
 <a name="class" ></a>
 	
-# class 
+# class
+
+## [metaclass](http://blog.jobbole.com/21351/)
+
+> “元类就是深度的魔法，99%的用户应该根本不必为此操心。如果你想搞清楚究竟是否需要用到元类，那么你就不需要它。那些实际用到元类的人都非常清楚地知道他们需要做什么，而且根本不需要解释为什么要用元类。”  —— Python界的领袖 Tim Peters
+
+**元类的主要用途是创建API**
+
+class A声明A是一种类/metaclass(元类)对象，A.__metaclass__是元类，元类就是用来创建类的“东西”（类的工厂类）。使用class关键字时，Python解释器自动创建这个class对象.
+
+```
+class A(object):
+	pass
+```
+
+理解为
+
+A = MetaClass();
+obj = A()
+
+背后由type实现。这是因为函数type实际上是一个元类。type就是Python在背后用来创建所有类的元类。type就是创建类对象的类
+
+```
+def foo:
+	pass
+print foo.__class__ # <type 'function'>
+print foo.__class__.__class__ # <type 'type'>
+```
+
+type可以接受一个类的描述作为参数，然后返回一个元类对象
+
+type(类名, 父类的元组（针对继承的情况，可以为空），包含属性的字典（名称和值）)
+
+```
+class FooChild(Foo):
+	def echo_bar(self):
+		print self.bar
+	pass
+```
+
+等价于
+
+```
+# type组装
+def echo_bar(self):
+	print self.bar
+FooChild = type('FooChild', (Foo,), {'echo_bar': echo_bar})  # 返回一个类对象
+```
+
+自定义metaclass
+
+```
+# 请记住，'type'实际上是一个类，就像'str'和'int'一样
+# 所以，你可以从type继承
+class UpperAttrMetaClass(type):
+    # __new__ 是在__init__之前被调用的特殊方法
+    # __new__是用来创建对象并返回之的方法
+    # 而__init__只是用来将传入的参数初始化给对象
+    # 你很少用到__new__，除非你希望能够控制对象的创建
+    # 这里，创建的对象是类，我们希望能够自定义它，所以我们这里改写__new__
+    # 如果你希望的话，你也可以在__init__中做些事情
+    # 还有一些高级的用法会涉及到改写__call__特殊方法，但是我们这里不用
+    def __new__(upperattr_metaclass, future_class_name, future_class_parents, future_class_attr):
+        attrs = ((name, value) for name, value in future_class_attr.items() if not name.startswith('__'))
+        uppercase_attr = dict((name.upper(), value) for name, value in attrs)
+        return type(future_class_name, future_class_parents, uppercase_attr)
+```
+
+## 公共属性
+
+```
+__class__
+__metaclass__  在类的定义时，Python就会用它来创建类，如果没有找到，就会用内建的type来创建这个类
+hasattr(Foo, 'bar')
+```
+
+## example
 
 所有python对象共有三个属性：id,type,value
 
@@ -525,7 +624,7 @@ Multiple Inheritance: `class DerivedClassName(Base1, Base2, Base3):`
 
 >函数是特殊的class
 
-- 每个def都是一个带__call__()的class定义
+- 每个def都是一个带__call__(args...)的class定义
 - function无继承结构，所以加载文件不会执行作用域的代码
 
 `var_lam = lambda x,y: some_expression(x,y)`
@@ -665,6 +764,7 @@ A special file called __init__.py (which may be empty) tells Python that the dir
 
 - dir()  module.__file__#查询一个类或者对象所有属性
 - hasattr(obj, attr_name)   # attr_name是一个字符串
+- getattr(obj, attr_name)
 - help() some? #查询说明文档
 
 使用obj.__class__.__name__来查询对象所属的类/名称；.__base__查询某个类的父类;module.__file__ 看module文件位置

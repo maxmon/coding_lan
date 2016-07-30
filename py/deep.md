@@ -81,7 +81,9 @@ _getattr__(self, name)来查询即时生成的属性
 
 ## [装饰器(decorator)](http://www.cnblogs.com/vamei/archive/2013/02/16/2820212.html)
 
-pass
+@method 对一个函数、方法或者类进行加工 
+
+装饰器的核心作用是name binding
 
 <a name="内存" ></a>
 
@@ -97,4 +99,5 @@ pass
 
 - 计数为0
 - 分代回收 一些对象长期被使用，减少在垃圾回收中扫描它们的频率
+- `__del__()`销毁对象执行
    
