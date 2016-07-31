@@ -4,7 +4,7 @@
 1. [re](#re)
 1. [logging](#logging)
 1. [让人耳目一新的Python库](#让人耳目一新的Python库)
-
+1. [repo](#repo)
 
 <a name="logging" ></a>
 ## [logging](http://kenby.iteye.com/blog/1162698)
@@ -28,3 +28,6 @@ github第三方py
 ## itertools
 
 itertools包含了很多特殊的迭代方法
+
+<a name="repo" ></a>
+## [repo](http://pyzh.readthedocs.io/en/latest/GitHub-Repos-For-Pythoners.html)

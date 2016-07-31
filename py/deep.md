@@ -3,31 +3,40 @@
 - <a href="#对象属性">对象属性</a>
 - <a href="#闭包">闭包</a>
 - <a href="#装饰器">装饰器(decorator)</a>
+- <a href="#自省">自省(反射)</a>
 - <a href="#内存">内存</a>
 - <a href="#垃圾回收">垃圾回收</a>
 
 <a name="特殊方法与多范式" ></a>
 
-## 内置函数
+## 内置函数 
 
-定义了__init__()方法的类，会在创建对象的时候自动执行__init__()方法中的操作
+@magic function
+
+定义了`__init__()`方法的类，会在创建对象的时候自动执行`__init__()`方法中的操作
 
 - 运算符： 对应特定方法的调用
-	- 'abc' + 'xyz'  'abc'.__add__('xyz') #两个对象是否能进行加法运算，首先就要看相应的对象是否有__add__()方法
-	- (1.8).__mul__(2.0)
-	- True.__or__(False)
+	- `'abc' + 'xyz'  'abc'.__add__('xyz')` #两个对象是否能进行加法运算，首先就要看相应的对象是否有__add__()方法
+	- `(1.8).__mul__(2.0)`
+	- `True.__or__(False)`
 
 - 一些内置函数
-	- len([1,2,3]) [1,2,3].__len__()
-	- (-1).__abs__()
-	- (2.3).__int__()
-	- li[3] li.__getitem__(3)
+	- `len([1,2,3]) [1,2,3].__len__()`
+	- `(-1).__abs__()`
+	- `(2.3).__int__()`
+	- `li[3] li.__getitem__(3)`
 	
-**函数也是一种对象。任何一个有__call__()特殊方法的对象都被当作是函数**
+**函数也是一种对象。任何一个有`__call__()`特殊方法的对象都被当作是函数**
 
+```
 class SampleMore(object):
     def __call__(self, some_arg):
         #some code
+```
+
+## [描述器](http://pyzh.readthedocs.io/en/latest/python-hidden-features.html)
+
+一个描述器是一个有“绑定行为”的对象属性(object attribute)，它的访问控制被描述器协议方法重写。这些方法是 `__get__(), __set__(), 和 __delete__()` 。有这些方法的对象叫做描述器
 
 <a name="上下文管理器" ></a>
 
@@ -81,10 +90,26 @@ _getattr__(self, name)来查询即时生成的属性
 
 ## [装饰器(decorator)](http://www.cnblogs.com/vamei/archive/2013/02/16/2820212.html)
 
+定义了`__get__, __set__, __delete__`的对象
+
 @method 对一个函数、方法或者类进行加工 
 
 装饰器的核心作用是name binding
 
+<a name="自省" ></a>
+
+## [自省](http://www.cnblogs.com/huxi/archive/2011/01/02/1924317.html)
+
+- isinstance(object, classinfo)
+- dir([obj])
+- getattr(object, name[, default])
+- hasattr(obj, attr)
+- setattr(obj, attr, val) 相当于obj.bar = val
+
+```
+print getattr(Instance , 'age', 'not find')  
+print getattr(Instance , 'method')(arg1, arg2)  
+```
 <a name="内存" ></a>
 
 ## 内存

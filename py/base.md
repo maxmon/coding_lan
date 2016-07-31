@@ -402,6 +402,8 @@ None不是保留关键字，而是NoneType的一个实例
 <a name="生成器" ></a>
 ## [生成器 yield](http://pyzh.readthedocs.io/en/latest/the-python-yield-keyword-explained.html)
 
+定义了 `__iter__  next()`的对象
+
 ```
 class count_iterator(object):
 
