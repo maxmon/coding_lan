@@ -586,12 +586,15 @@ class UpperAttrMetaClass(type):
 ```
 def __init__(self, var):
 	pass
+	
 def func(self):
 	pass
+	
+# @classmethod因为持有cls参数，可以来调用类的属性，类的方法
 @classmethod
 def method(cls,...)
-	print cls.var 
-	cls.func()  
+	print cls.class_var 
+
 ```
 
 ## 公共属性

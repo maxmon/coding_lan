@@ -106,7 +106,7 @@ from abc import ABCMeta, abstractmethod
 class ...
 
 	@abstractmethod
-	@classmethod
+	@classmethod 
 	@raises(ValueError)
 	def some_func():
 		pass
@@ -228,4 +228,25 @@ finally:
 
 ```
  m_var = var or def_var
+```
+
+## abc
+
+```
+from six import with_metaclass
+from abc import ABCMeta, abstractmethod
+
+class Parent(with_metaclass(ABCMeta, A, B)):
+
+	@abstractmethod
+	def my_method1(self, ...):
+	
+	@abstractmethod
+	def my_method2(self, arg):
+		...some impl...
+
+class Child(Parent):
+	...
+	def my_method2(self, arg):
+		super(Child, self).my_method2(arg)
 ```
