@@ -29,8 +29,9 @@
 ```
 __init.py__
 
+# SomeClass需要声明import some_func不是必需
 from .package import SomeClassA, SomeClassB
-from .file import SomeClassC, some_func
+from .file import SomeClassC, [some_func]
 #set()
 
 __version__ = "0.7.0"
@@ -95,3 +96,6 @@ def _some_fuc():
 
 ```
 
+## some_func or SomeClass
+
+是否需要持有变量/常量

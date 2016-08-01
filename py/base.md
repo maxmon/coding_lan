@@ -577,6 +577,23 @@ class UpperAttrMetaClass(type):
         return type(future_class_name, future_class_parents, uppercase_attr)
 ```
 
+## 装饰器
+
+- @property
+- @staticmethod
+- @classmethod
+
+```
+def __init__(self, var):
+	pass
+def func(self):
+	pass
+@classmethod
+def method(cls,...)
+	print cls.var 
+	cls.func()  
+```
+
 ## 公共属性
 
 ```
