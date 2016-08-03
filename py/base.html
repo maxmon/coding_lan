@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <title>python基础 | </title>
+        <title>基础 | </title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 2.6.7">
@@ -40,7 +40,7 @@
     <link rel="next" href="../py/deep.html" />
     
     
-    <link rel="prev" href="../py/python.html" />
+    <link rel="prev" href="../py/index.html" />
     
 
         
@@ -50,10 +50,10 @@
         
     <div class="book"
         data-level="4.2.1"
-        data-chapter-title="python基础"
+        data-chapter-title="基础"
         data-filepath="py/base.md"
         data-basepath=".."
-        data-revision="Fri Jul 15 2016 18:52:06 GMT+0800 (CST)"
+        data-revision="Wed Aug 03 2016 16:30:00 GMT+0800 (CST)"
         data-innerlanguage="">
     
 
@@ -176,10 +176,10 @@
             
         </li>
     
-        <li class="chapter " data-level="4.2" data-path="py/python.html">
+        <li class="chapter " data-level="4.2" data-path="py/index.html">
             
                 
-                    <a href="../py/python.html">
+                    <a href="../py/index.html">
                 
                         <i class="fa fa-check"></i>
                         
@@ -201,7 +201,7 @@
                         
                             <b>4.2.1.</b>
                         
-                        python基础
+                        基础
                     </a>
             
             
@@ -216,35 +216,80 @@
                         
                             <b>4.2.2.</b>
                         
-                        python进阶
+                        进阶
                     </a>
             
             
         </li>
     
-        <li class="chapter " data-level="4.2.3" data-path="py/libs.html">
+        <li class="chapter " data-level="4.2.3" data-path="py/module.html">
+            
+                
+                    <a href="../py/module.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.2.3.</b>
+                        
+                        模块
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.4" data-path="py/project.html">
+            
+                
+                    <a href="../py/project.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.2.4.</b>
+                        
+                        工程
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.5" data-path="py/skill.html">
+            
+                
+                    <a href="../py/skill.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.2.5.</b>
+                        
+                        技巧
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.6" data-path="py/libs.html">
             
                 
                     <a href="../py/libs.html">
                 
                         <i class="fa fa-check"></i>
                         
-                            <b>4.2.3.</b>
+                            <b>4.2.6.</b>
                         
-                        python常用类库
+                        (desperated)常用类库
                     </a>
             
             
         </li>
     
-        <li class="chapter " data-level="4.2.4" data-path="py/ipython.html">
+        <li class="chapter " data-level="4.2.7" data-path="py/ipython.html">
             
                 
                     <a href="../py/ipython.html">
                 
                         <i class="fa fa-check"></i>
                         
-                            <b>4.2.4.</b>
+                            <b>4.2.7.</b>
                         
                         ipython
                     </a>
@@ -252,14 +297,14 @@
             
         </li>
     
-        <li class="chapter " data-level="4.2.5" data-path="py/numpy.html">
+        <li class="chapter " data-level="4.2.8" data-path="py/numpy.html">
             
                 
                     <a href="../py/numpy.html">
                 
                         <i class="fa fa-check"></i>
                         
-                            <b>4.2.5.</b>
+                            <b>4.2.8.</b>
                         
                         numpy
                     </a>
@@ -1225,20 +1270,34 @@ hash(var) #hash&#x51FD;&#x6570;&#xFF0C;&#x672C;&#x8D28;&#x4E0A;&#x4E0D;&#x662F;&
 <li>zip()&#x591A;&#x4E2A;&#x7B49;&#x957F;&#x7684;&#x5217; # for (a,b,c) in zip(ta,tb,tc):</li>
 </ul>
 <p><a name="&#x751F;&#x6210;&#x5668;"></a></p>
-<h2 id="&#x751F;&#x6210;&#x5668;">&#x751F;&#x6210;&#x5668;</h2>
-<p>&#x751F;&#x6210;&#x5668;(generator)&#x7684;&#x4E3B;&#x8981;&#x76EE;&#x7684;&#x662F;&#x6784;&#x6210;&#x4E00;&#x4E2A;&#x7528;&#x6237;&#x81EA;&#x5B9A;&#x4E49;&#x7684;&#x5FAA;&#x73AF;&#x5BF9;&#x8C61;&#x3002;</p>
-<p>&#x751F;&#x6210;&#x5668;&#x7684;&#x7F16;&#x5199;&#x65B9;&#x6CD5;&#x548C;&#x51FD;&#x6570;&#x5B9A;&#x4E49;&#x7C7B;&#x4F3C;&#xFF0C;&#x53EA;&#x662F;&#x5728;return&#x7684;&#x5730;&#x65B9;&#x6539;&#x4E3A;yield</p>
-<p>def gen():
-    a = 100
-    yield a
-    a = a*8
-    yield a
-    yield 1000</p>
-<p>t=gen(5)
-t.next()
-t.next()</p>
-<p>&#x53C8;&#x53EF;&#x4EE5;&#x5199;&#x6210;&#x751F;&#x6210;&#x5668;&#x8868;&#x8FBE;&#x5F0F;(Generator Expression):</p>
-<p>G = (x for x in range(4))</p>
+<h2 id="&#x751F;&#x6210;&#x5668;-yield"><a href="http://pyzh.readthedocs.io/en/latest/the-python-yield-keyword-explained.html" target="_blank">&#x751F;&#x6210;&#x5668; yield</a></h2>
+<p>&#x5B9A;&#x4E49;&#x4E86; <code>__iter__  next()</code>&#x7684;&#x5BF9;&#x8C61;</p>
+<pre><code>class count_iterator(object):
+
+    def __iter__(self):
+        return self
+
+    def next(self):
+        pass
+</code></pre><p><code>a_l.extend(b_l)</code> &#x662F;&#x4E00;&#x4E2A;&#x8FED;&#x4EE3;&#x5668;&#x65B9;&#x6CD5;</p>
+<pre><code>&#x4F46;&#x662F;&#x5728;&#x4F60;&#x7684;&#x4EE3;&#x7801;&#x4E2D;&#x7684;&#x662F;&#x4E00;&#x4E2A;&#x751F;&#x6210;&#x5668;&#xFF0C;&#x8FD9;&#x662F;&#x4E0D;&#x9519;&#x7684;&#xFF0C;&#x56E0;&#x4E3A;&#xFF1A;
+
+&#x4F60;&#x4E0D;&#x5FC5;&#x8BFB;&#x4E24;&#x6B21;&#x6240;&#x6709;&#x7684;&#x503C;
+&#x4F60;&#x53EF;&#x4EE5;&#x6709;&#x5F88;&#x591A;&#x5B50;&#x5BF9;&#x8C61;&#xFF0C;&#x4F46;&#x4E0D;&#x5FC5;&#x53EB;&#x4ED6;&#x4EEC;&#x90FD;&#x5B58;&#x50A8;&#x5728;&#x5185;&#x5B58;&#x91CC;&#x9762;&#x3002;
+&#x5E76;&#x4E14;&#x8FD9;&#x5F88;&#x594F;&#x6548;&#xFF0C;&#x56E0;&#x4E3A;Python&#x4E0D;&#x5173;&#x5FC3;&#x4E00;&#x4E2A;&#x65B9;&#x6CD5;&#x7684;&#x53C2;&#x6570;&#x662F;&#x4E0D;&#x662F;&#x4E2A;&#x94FE;&#x8868;&#x3002;Python&#x53EA;&#x5E0C;&#x671B;&#x5B83;&#x662F;&#x4E2A;&#x53EF;&#x4EE5;&#x8FED;&#x4EE3;&#x7684;&#xFF0C;&#x6240;&#x4EE5;&#x8FD9;&#x4E2A;&#x53C2;&#x6570;&#x53EF;&#x4EE5;&#x662F;&#x94FE;&#x8868;&#xFF0C;&#x5143;&#x7EC4;&#xFF0C;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x751F;&#x6210;&#x5668;... &#x8FD9;&#x53EB;&#x505A; duck typing,&#x8FD9;&#x4E5F;&#x662F;&#x4E3A;&#x4F55;Python&#x5982;&#x6B64;&#x68D2;&#x7684;&#x539F;&#x56E0;&#x4E4B;&#x4E00;
+</code></pre><p>&#x751F;&#x6210;&#x5668;&#x662F;&#x53EF;&#x4EE5;&#x8FED;&#x4EE3;&#x7684;&#xFF0C;&#x4F46;&#x662F;&#x4F60; &#x53EA;&#x53EF;&#x4EE5;&#x8BFB;&#x53D6;&#x5B83;&#x4E00;&#x6B21; &#xFF0C;&#x56E0;&#x4E3A;&#x5B83;&#x5E76;&#x4E0D;&#x628A;&#x6240;&#x6709;&#x7684;&#x503C;&#x653E;&#x5728;&#x5185;&#x5B58;&#x4E2D;&#xFF0C;&#x5B83;&#x662F;&#x5B9E;&#x65F6;&#x5730;&#x751F;&#x6210;&#x6570;&#x636E;</p>
+<pre><code>mygenerator = (x*x for x in range(3))
+    for i in mygenerator :
+...
+
+def createGenerator() :
+...    mylist = range(3)
+...    for i in mylist :
+...        yield i*i
+</code></pre><p>yield &#x662F;&#x4E00;&#x4E2A;&#x7C7B;&#x4F3C; return &#x7684;&#x5173;&#x952E;&#x5B57;&#xFF0C;&#x53EA;&#x662F;&#x8FD9;&#x4E2A;&#x51FD;&#x6570;&#x8FD4;&#x56DE;&#x7684;&#x662F;&#x4E2A;&#x751F;&#x6210;&#x5668;</p>
+<p>&#x8C03;&#x7528;&#x8FD9;&#x4E2A;&#x51FD;&#x6570;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x51FD;&#x6570;&#x5185;&#x90E8;&#x7684;&#x4EE3;&#x7801;&#x5E76;&#x4E0D;&#x7ACB;&#x9A6C;&#x6267;&#x884C; &#xFF0C;&#x8FD9;&#x4E2A;&#x51FD;&#x6570;&#x53EA;&#x662F;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x751F;&#x6210;&#x5668;&#x5BF9;&#x8C61;</p>
+<p>&#x8FED;&#x4EE3;&#x662F;&#x4E00;&#x4E2A;&#x5B9E;&#x73B0;&#x53EF;&#x8FED;&#x4EE3;&#x5BF9;&#x8C61;(&#x5B9E;&#x73B0;&#x7684;&#x662F; <strong>iter</strong>() &#x65B9;&#x6CD5;)&#x548C;&#x8FED;&#x4EE3;&#x5668;(&#x5B9E;&#x73B0;&#x7684;&#x662F; <strong>next</strong>() &#x65B9;&#x6CD5;)&#x7684;&#x8FC7;&#x7A0B;&#x3002;</p>
+<p>itertools&#x5305;&#x542B;&#x4E86;&#x5F88;&#x591A;&#x7279;&#x6B8A;&#x7684;&#x8FED;&#x4EE3;&#x65B9;&#x6CD5;</p>
 <p><a name="I/O file&#x8BFB;&#x5199;"></a></p>
 <h2 id="io-file&#x8BFB;&#x5199;">I/O file&#x8BFB;&#x5199;</h2>
 <ul>
@@ -1283,6 +1342,69 @@ continue
     def b:#b&#x53EA;&#x5728;a&#x6267;&#x884C;&#x65F6;&#x5B9A;&#x4E49;&#xFF0C;a&#x8FD0;&#x884C;&#x7ED3;&#x675F;&#x540E;&#x9500;&#x6BC1;
 </code></pre><p><a name="class"></a></p>
 <h1 id="class">class</h1>
+<h2 id="metaclass"><a href="http://blog.jobbole.com/21351/" target="_blank">metaclass</a></h2>
+<blockquote>
+<p>&#x201C;&#x5143;&#x7C7B;&#x5C31;&#x662F;&#x6DF1;&#x5EA6;&#x7684;&#x9B54;&#x6CD5;&#xFF0C;99%&#x7684;&#x7528;&#x6237;&#x5E94;&#x8BE5;&#x6839;&#x672C;&#x4E0D;&#x5FC5;&#x4E3A;&#x6B64;&#x64CD;&#x5FC3;&#x3002;&#x5982;&#x679C;&#x4F60;&#x60F3;&#x641E;&#x6E05;&#x695A;&#x7A76;&#x7ADF;&#x662F;&#x5426;&#x9700;&#x8981;&#x7528;&#x5230;&#x5143;&#x7C7B;&#xFF0C;&#x90A3;&#x4E48;&#x4F60;&#x5C31;&#x4E0D;&#x9700;&#x8981;&#x5B83;&#x3002;&#x90A3;&#x4E9B;&#x5B9E;&#x9645;&#x7528;&#x5230;&#x5143;&#x7C7B;&#x7684;&#x4EBA;&#x90FD;&#x975E;&#x5E38;&#x6E05;&#x695A;&#x5730;&#x77E5;&#x9053;&#x4ED6;&#x4EEC;&#x9700;&#x8981;&#x505A;&#x4EC0;&#x4E48;&#xFF0C;&#x800C;&#x4E14;&#x6839;&#x672C;&#x4E0D;&#x9700;&#x8981;&#x89E3;&#x91CA;&#x4E3A;&#x4EC0;&#x4E48;&#x8981;&#x7528;&#x5143;&#x7C7B;&#x3002;&#x201D;  &#x2014;&#x2014; Python&#x754C;&#x7684;&#x9886;&#x8896; Tim Peters</p>
+</blockquote>
+<p><strong>&#x5143;&#x7C7B;&#x7684;&#x4E3B;&#x8981;&#x7528;&#x9014;&#x662F;&#x521B;&#x5EFA;API</strong></p>
+<p>class A&#x58F0;&#x660E;A&#x662F;&#x4E00;&#x79CD;&#x7C7B;/metaclass(&#x5143;&#x7C7B;)&#x5BF9;&#x8C61;&#xFF0C;A.<strong>metaclass</strong>&#x662F;&#x5143;&#x7C7B;&#xFF0C;&#x5143;&#x7C7B;&#x5C31;&#x662F;&#x7528;&#x6765;&#x521B;&#x5EFA;&#x7C7B;&#x7684;&#x201C;&#x4E1C;&#x897F;&#x201D;&#xFF08;&#x7C7B;&#x7684;&#x5DE5;&#x5382;&#x7C7B;&#xFF09;&#x3002;&#x4F7F;&#x7528;class&#x5173;&#x952E;&#x5B57;&#x65F6;&#xFF0C;Python&#x89E3;&#x91CA;&#x5668;&#x81EA;&#x52A8;&#x521B;&#x5EFA;&#x8FD9;&#x4E2A;class&#x5BF9;&#x8C61;.</p>
+<pre><code>class A(object):
+    pass
+</code></pre><p>&#x7406;&#x89E3;&#x4E3A;</p>
+<p>A = MetaClass();
+obj = A()</p>
+<p>&#x80CC;&#x540E;&#x7531;type&#x5B9E;&#x73B0;&#x3002;&#x8FD9;&#x662F;&#x56E0;&#x4E3A;&#x51FD;&#x6570;type&#x5B9E;&#x9645;&#x4E0A;&#x662F;&#x4E00;&#x4E2A;&#x5143;&#x7C7B;&#x3002;type&#x5C31;&#x662F;Python&#x5728;&#x80CC;&#x540E;&#x7528;&#x6765;&#x521B;&#x5EFA;&#x6240;&#x6709;&#x7C7B;&#x7684;&#x5143;&#x7C7B;&#x3002;type&#x5C31;&#x662F;&#x521B;&#x5EFA;&#x7C7B;&#x5BF9;&#x8C61;&#x7684;&#x7C7B;</p>
+<pre><code>def foo:
+    pass
+print foo.__class__ # &lt;type &apos;function&apos;&gt;
+print foo.__class__.__class__ # &lt;type &apos;type&apos;&gt;
+</code></pre><p>type&#x53EF;&#x4EE5;&#x63A5;&#x53D7;&#x4E00;&#x4E2A;&#x7C7B;&#x7684;&#x63CF;&#x8FF0;&#x4F5C;&#x4E3A;&#x53C2;&#x6570;&#xFF0C;&#x7136;&#x540E;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x5143;&#x7C7B;&#x5BF9;&#x8C61;</p>
+<p>type(&#x7C7B;&#x540D;, &#x7236;&#x7C7B;&#x7684;&#x5143;&#x7EC4;&#xFF08;&#x9488;&#x5BF9;&#x7EE7;&#x627F;&#x7684;&#x60C5;&#x51B5;&#xFF0C;&#x53EF;&#x4EE5;&#x4E3A;&#x7A7A;&#xFF09;&#xFF0C;&#x5305;&#x542B;&#x5C5E;&#x6027;&#x7684;&#x5B57;&#x5178;&#xFF08;&#x540D;&#x79F0;&#x548C;&#x503C;&#xFF09;)</p>
+<pre><code>class FooChild(Foo):
+    def echo_bar(self):
+        print self.bar
+    pass
+</code></pre><p>&#x7B49;&#x4EF7;&#x4E8E;</p>
+<pre><code># type&#x7EC4;&#x88C5;
+def echo_bar(self):
+    print self.bar
+FooChild = type(&apos;FooChild&apos;, (Foo,), {&apos;echo_bar&apos;: echo_bar})  # &#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x7C7B;&#x5BF9;&#x8C61;
+</code></pre><p>&#x81EA;&#x5B9A;&#x4E49;metaclass</p>
+<pre><code># &#x8BF7;&#x8BB0;&#x4F4F;&#xFF0C;&apos;type&apos;&#x5B9E;&#x9645;&#x4E0A;&#x662F;&#x4E00;&#x4E2A;&#x7C7B;&#xFF0C;&#x5C31;&#x50CF;&apos;str&apos;&#x548C;&apos;int&apos;&#x4E00;&#x6837;
+# &#x6240;&#x4EE5;&#xFF0C;&#x4F60;&#x53EF;&#x4EE5;&#x4ECE;type&#x7EE7;&#x627F;
+class UpperAttrMetaClass(type):
+    # __new__ &#x662F;&#x5728;__init__&#x4E4B;&#x524D;&#x88AB;&#x8C03;&#x7528;&#x7684;&#x7279;&#x6B8A;&#x65B9;&#x6CD5;
+    # __new__&#x662F;&#x7528;&#x6765;&#x521B;&#x5EFA;&#x5BF9;&#x8C61;&#x5E76;&#x8FD4;&#x56DE;&#x4E4B;&#x7684;&#x65B9;&#x6CD5;
+    # &#x800C;__init__&#x53EA;&#x662F;&#x7528;&#x6765;&#x5C06;&#x4F20;&#x5165;&#x7684;&#x53C2;&#x6570;&#x521D;&#x59CB;&#x5316;&#x7ED9;&#x5BF9;&#x8C61;
+    # &#x4F60;&#x5F88;&#x5C11;&#x7528;&#x5230;__new__&#xFF0C;&#x9664;&#x975E;&#x4F60;&#x5E0C;&#x671B;&#x80FD;&#x591F;&#x63A7;&#x5236;&#x5BF9;&#x8C61;&#x7684;&#x521B;&#x5EFA;
+    # &#x8FD9;&#x91CC;&#xFF0C;&#x521B;&#x5EFA;&#x7684;&#x5BF9;&#x8C61;&#x662F;&#x7C7B;&#xFF0C;&#x6211;&#x4EEC;&#x5E0C;&#x671B;&#x80FD;&#x591F;&#x81EA;&#x5B9A;&#x4E49;&#x5B83;&#xFF0C;&#x6240;&#x4EE5;&#x6211;&#x4EEC;&#x8FD9;&#x91CC;&#x6539;&#x5199;__new__
+    # &#x5982;&#x679C;&#x4F60;&#x5E0C;&#x671B;&#x7684;&#x8BDD;&#xFF0C;&#x4F60;&#x4E5F;&#x53EF;&#x4EE5;&#x5728;__init__&#x4E2D;&#x505A;&#x4E9B;&#x4E8B;&#x60C5;
+    # &#x8FD8;&#x6709;&#x4E00;&#x4E9B;&#x9AD8;&#x7EA7;&#x7684;&#x7528;&#x6CD5;&#x4F1A;&#x6D89;&#x53CA;&#x5230;&#x6539;&#x5199;__call__&#x7279;&#x6B8A;&#x65B9;&#x6CD5;&#xFF0C;&#x4F46;&#x662F;&#x6211;&#x4EEC;&#x8FD9;&#x91CC;&#x4E0D;&#x7528;
+    def __new__(upperattr_metaclass, future_class_name, future_class_parents, future_class_attr):
+        attrs = ((name, value) for name, value in future_class_attr.items() if not name.startswith(&apos;__&apos;))
+        uppercase_attr = dict((name.upper(), value) for name, value in attrs)
+        return type(future_class_name, future_class_parents, uppercase_attr)
+</code></pre><h2 id="&#x88C5;&#x9970;&#x5668;">&#x88C5;&#x9970;&#x5668;</h2>
+<ul>
+<li>@property</li>
+<li>@staticmethod</li>
+<li>@classmethod</li>
+</ul>
+<pre><code>def __init__(self, var):
+    pass
+
+def func(self):
+    pass
+
+# @classmethod&#x56E0;&#x4E3A;&#x6301;&#x6709;cls&#x53C2;&#x6570;&#xFF0C;&#x53EF;&#x4EE5;&#x6765;&#x8C03;&#x7528;&#x7C7B;&#x7684;&#x5C5E;&#x6027;&#xFF0C;&#x7C7B;&#x7684;&#x65B9;&#x6CD5;
+@classmethod
+def method(cls,...)
+    print cls.class_var
+</code></pre><h2 id="&#x516C;&#x5171;&#x5C5E;&#x6027;">&#x516C;&#x5171;&#x5C5E;&#x6027;</h2>
+<pre><code>__class__
+__metaclass__  &#x5728;&#x7C7B;&#x7684;&#x5B9A;&#x4E49;&#x65F6;&#xFF0C;Python&#x5C31;&#x4F1A;&#x7528;&#x5B83;&#x6765;&#x521B;&#x5EFA;&#x7C7B;&#xFF0C;&#x5982;&#x679C;&#x6CA1;&#x6709;&#x627E;&#x5230;&#xFF0C;&#x5C31;&#x4F1A;&#x7528;&#x5185;&#x5EFA;&#x7684;type&#x6765;&#x521B;&#x5EFA;&#x8FD9;&#x4E2A;&#x7C7B;
+hasattr(Foo, &apos;bar&apos;)
+</code></pre><h2 id="example">example</h2>
 <p>&#x6240;&#x6709;python&#x5BF9;&#x8C61;&#x5171;&#x6709;&#x4E09;&#x4E2A;&#x5C5E;&#x6027;&#xFF1A;id,type,value</p>
 <pre><code>class Student(object):
     wtf = &apos;ttt&apos; # class var
@@ -1318,7 +1440,7 @@ print c.update_item(&apos;some_item&apos;)
 <p>&#x51FD;&#x6570;&#x662F;&#x7279;&#x6B8A;&#x7684;class</p>
 </blockquote>
 <ul>
-<li>&#x6BCF;&#x4E2A;def&#x90FD;&#x662F;&#x4E00;&#x4E2A;&#x5E26;<strong>call</strong>()&#x7684;class&#x5B9A;&#x4E49;</li>
+<li>&#x6BCF;&#x4E2A;def&#x90FD;&#x662F;&#x4E00;&#x4E2A;&#x5E26;<strong>call</strong>(args...)&#x7684;class&#x5B9A;&#x4E49;</li>
 <li>function&#x65E0;&#x7EE7;&#x627F;&#x7ED3;&#x6784;&#xFF0C;&#x6240;&#x4EE5;&#x52A0;&#x8F7D;&#x6587;&#x4EF6;&#x4E0D;&#x4F1A;&#x6267;&#x884C;&#x4F5C;&#x7528;&#x57DF;&#x7684;&#x4EE3;&#x7801;</li>
 </ul>
 <p><code>var_lam = lambda x,y: some_expression(x,y)</code></p>
@@ -1412,6 +1534,7 @@ if new_path not in sys.path:
 <ul>
 <li>dir()  module.<strong>file</strong>#&#x67E5;&#x8BE2;&#x4E00;&#x4E2A;&#x7C7B;&#x6216;&#x8005;&#x5BF9;&#x8C61;&#x6240;&#x6709;&#x5C5E;&#x6027;</li>
 <li>hasattr(obj, attr_name)   # attr_name&#x662F;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x4E32;</li>
+<li>getattr(obj, attr_name)</li>
 <li>help() some? #&#x67E5;&#x8BE2;&#x8BF4;&#x660E;&#x6587;&#x6863;</li>
 </ul>
 <p>&#x4F7F;&#x7528;obj.<strong>class</strong>.<strong>name</strong>&#x6765;&#x67E5;&#x8BE2;&#x5BF9;&#x8C61;&#x6240;&#x5C5E;&#x7684;&#x7C7B;/&#x540D;&#x79F0;&#xFF1B;.<strong>base</strong>&#x67E5;&#x8BE2;&#x67D0;&#x4E2A;&#x7C7B;&#x7684;&#x7236;&#x7C7B;;module.<strong>file</strong> &#x770B;module&#x6587;&#x4EF6;&#x4F4D;&#x7F6E;</p>
@@ -1443,10 +1566,10 @@ print(inspect.getargspec(func))</p>
         </div>
 
         
-        <a href="../py/python.html" class="navigation navigation-prev " aria-label="Previous page: python"><i class="fa fa-angle-left"></i></a>
+        <a href="../py/index.html" class="navigation navigation-prev " aria-label="Previous page: python"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../py/deep.html" class="navigation navigation-next " aria-label="Next page: python进阶"><i class="fa fa-angle-right"></i></a>
+        <a href="../py/deep.html" class="navigation navigation-next " aria-label="Next page: 进阶"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>

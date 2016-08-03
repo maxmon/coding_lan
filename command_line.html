@@ -53,7 +53,7 @@
         data-chapter-title="command line"
         data-filepath="command_line.md"
         data-basepath="."
-        data-revision="Fri Jul 15 2016 18:52:06 GMT+0800 (CST)"
+        data-revision="Wed Aug 03 2016 16:30:00 GMT+0800 (CST)"
         data-innerlanguage="">
     
 
@@ -176,10 +176,10 @@
             
         </li>
     
-        <li class="chapter " data-level="4.2" data-path="py/python.html">
+        <li class="chapter " data-level="4.2" data-path="py/index.html">
             
                 
-                    <a href="./py/python.html">
+                    <a href="./py/index.html">
                 
                         <i class="fa fa-check"></i>
                         
@@ -201,7 +201,7 @@
                         
                             <b>4.2.1.</b>
                         
-                        python基础
+                        基础
                     </a>
             
             
@@ -216,35 +216,80 @@
                         
                             <b>4.2.2.</b>
                         
-                        python进阶
+                        进阶
                     </a>
             
             
         </li>
     
-        <li class="chapter " data-level="4.2.3" data-path="py/libs.html">
+        <li class="chapter " data-level="4.2.3" data-path="py/module.html">
+            
+                
+                    <a href="./py/module.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.2.3.</b>
+                        
+                        模块
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.4" data-path="py/project.html">
+            
+                
+                    <a href="./py/project.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.2.4.</b>
+                        
+                        工程
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.5" data-path="py/skill.html">
+            
+                
+                    <a href="./py/skill.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.2.5.</b>
+                        
+                        技巧
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.6" data-path="py/libs.html">
             
                 
                     <a href="./py/libs.html">
                 
                         <i class="fa fa-check"></i>
                         
-                            <b>4.2.3.</b>
+                            <b>4.2.6.</b>
                         
-                        python常用类库
+                        (desperated)常用类库
                     </a>
             
             
         </li>
     
-        <li class="chapter " data-level="4.2.4" data-path="py/ipython.html">
+        <li class="chapter " data-level="4.2.7" data-path="py/ipython.html">
             
                 
                     <a href="./py/ipython.html">
                 
                         <i class="fa fa-check"></i>
                         
-                            <b>4.2.4.</b>
+                            <b>4.2.7.</b>
                         
                         ipython
                     </a>
@@ -252,14 +297,14 @@
             
         </li>
     
-        <li class="chapter " data-level="4.2.5" data-path="py/numpy.html">
+        <li class="chapter " data-level="4.2.8" data-path="py/numpy.html">
             
                 
                     <a href="./py/numpy.html">
                 
                         <i class="fa fa-check"></i>
                         
-                            <b>4.2.5.</b>
+                            <b>4.2.8.</b>
                         
                         numpy
                     </a>
@@ -909,9 +954,105 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h2 id="command">command</h2>
+                        <h2 id="summary">summary</h2>
 <p> .* indicates a hidden file.</p>
 <p> grep&#x67E5;&#x627E;&#xFF0C;sed&#x7F16;&#x8F91;&#xFF0C;awk&#x6570;&#x636E;&#x5206;&#x6790;&#x5E76;&#x751F;&#x6210;&#x62A5;&#x544A;</p>
+<ul>
+<li>source file</li>
+<li>history</li>
+<li><code>find . -name &apos;my*&apos;</code></li>
+<li>ls -a -l -t(by time)</li>
+<li>cp / mv <code>cp a.txt b.txt c.txt dir/</code></li>
+<li>rm -r(recursive&quot;)f(force)</li>
+<li>echo stdin&gt;&gt;stdout/stderr(terminal)</li>
+<li>cat&#x3001;less&#x3001;more</li>
+<li>iconv -f&#x7F16;&#x7801; <code>tail -n 5 | iconv -f GBK(utf8 ascii)</code></li>
+<li>head/tail -n(&#x884C;&#x6570;) -6(&#x9664;&#x53BB;&#x524D;/&#x540E;6&#x884C;) <code>head -n -6 log2014.log</code></li>
+<li>wc lines, words, characters <code>wc -l path</code></li>
+</ul>
+<h2 id="sort">sort</h2>
+<pre><code>sort -r -n -k1 -k2 $midpath/step5_res &gt;$midpath/step5_res_s
+</code></pre><ul>
+<li>-u &#x53BB;&#x91CD;</li>
+<li>-r &#x964D;&#x5E8F;</li>
+<li>-n &#x4EE5;&#x6570;&#x503C;&#x6765;&#x6392;&#x5E8F;</li>
+<li>-n -k1 -k2 &#x4EE5;&#x7B2C;&#x4E00;&#x5217;,&#x7B2C;&#x4E8C;&#x5217;&#x6392;&#x5E8F;&#x6570;&#x503C;&#x5927;&#x5C0F;&#x6392;&#x5E8F;</li>
+<li>-f &#x5FFD;&#x7565;&#x5927;&#x5C0F;&#x5199;<h2 id="uniq--uniq-&#xFF3B;&#x9009;&#x9879;&#xFF3D;-&#x6587;&#x4EF6;">uniq  <code>uniq &#xFF3B;-&#x9009;&#x9879;&#xFF3D; &#x6587;&#x4EF6;</code></h2>
+</li>
+</ul>
+<pre><code>uniq - u - 1 +1 example
+</code></pre><ul>
+<li>c &#x663E;&#x793A;&#x8F93;&#x51FA;&#x4E2D;&#xFF0C;&#x5728;&#x6BCF;&#x884C;&#x884C;&#x9996;&#x52A0;&#x4E0A;&#x672C;&#x884C;&#x5728;&#x6587;&#x4EF6;&#x4E2D;&#x51FA;&#x73B0;&#x7684;&#x6B21;&#x6570;&#x3002;&#x53D6;&#x4EE3;- u&#x548C;- d&#x9009;&#x9879;&#x3002;</li>
+<li>d &#x53EA;&#x663E;&#x793A;&#x91CD;&#x590D;&#x884C; </li>
+<li>u &#x53EA;&#x663E;&#x793A;&#x6587;&#x4EF6;&#x4E2D;&#x4E0D;&#x91CD;&#x590D;&#x7684;&#x5404;&#x884C; </li>
+<li>-n &#x524D;n&#x4E2A;&#x5B57;&#x6BB5;&#x4E0E;&#x6BCF;&#x4E2A;&#x5B57;&#x6BB5;&#x524D;&#x7684;&#x7A7A;&#x767D;&#x4E00;&#x8D77;&#x88AB;&#x5FFD;&#x7565;&#x3002;&#x4E00;&#x4E2A;&#x5B57;&#x6BB5;&#x662F;&#x4E00;&#x4E2A;&#x975E;&#x7A7A;&#x683C;&#x3001;&#x975E;&#x5236;&#x8868;&#x7B26;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x5F7C;&#x6B64;&#x7531;&#x5236;&#x8868;&#x7B26;&#x548C;&#x7A7A;&#x683C;&#x9694;&#x5F00;&#xFF08;&#x5B57;&#x6BB5;&#x4ECE;0&#x5F00;&#x59CB;&#x7F16;&#x53F7;&#xFF09;&#x3002;</li>
+<li>+n &#x524D;n&#x4E2A;&#x5B57;&#x7B26;&#x88AB;&#x5FFD;&#x7565;&#xFF0C;&#x4E4B;&#x524D;&#x7684;&#x5B57;&#x7B26;&#x88AB;&#x8DF3;&#x8FC7;&#xFF08;&#x5B57;&#x7B26;&#x4ECE;0&#x5F00;&#x59CB;&#x7F16;&#x53F7;&#xFF09;&#x3002;</li>
+<li>-f n &#x4E0E;- n&#x76F8;&#x540C;&#xFF0C;&#x8FD9;&#x91CC;n&#x662F;&#x5B57;&#x6BB5;&#x6570;&#x3002;</li>
+<li>-s n &#x4E0E;&#xFF0B;n&#x76F8;&#x540C;&#xFF0C;&#x8FD9;&#x91CC;n&#x662F;&#x5B57;&#x7B26;&#x6570;</li>
+</ul>
+<h2 id="grep"><a href="http://www.cnblogs.com/peida/archive/2012/12/17/2821195.html" target="_blank">grep</a></h2>
+<p><em>&quot;global regular expression print&quot;</em> grep [option] pattern file | less   &#xFF08;less&#x5206;&#x9875;&#x9605;&#x8BFB;&#xFF09; </p>
+<pre><code>svn log | grep -n my_name
+</code></pre><ul>
+<li>&#x67E5;&#x627E;&#x6307;&#x5B9A;&#x8FDB;&#x7A0B; <code>ps -ef|grep svn</code></li>
+<li>&#x67E5;&#x627E;&#x6307;&#x5B9A;&#x8FDB;&#x7A0B;&#xFF0C;&#x7EDF;&#x8BA1;&#x4E2A;&#x6570; <code>ps -ef|grep svn -c</code></li>
+<li>&#x4ECE;&#x6587;&#x4EF6;&#x4E2D;&#x8BFB;&#x53D6;&#x5173;&#x952E;&#x8BCD;&#x8FDB;&#x884C;&#x641C;&#x7D22;,&#x4E14;&#x663E;&#x793A;&#x884C;&#x53F7; <code>cat test.txt | grep -nf test2.txt</code></li>
+<li>&#x4ECE;&#x6587;&#x4EF6;&#x4E2D;&#x67E5;&#x627E;&#x5173;&#x952E;&#x8BCD; <code>grep &apos;linux&apos; test.txt</code></li>
+<li>&#x4ECE;&#x591A;&#x4E2A;&#x6587;&#x4EF6;&#x4E2D;&#x67E5;&#x627E;&#x5173;&#x952E;&#x8BCD; <code>grep &apos;linux&apos; test.txt test2.txt</code></li>
+<li>&#x8F93;&#x51FA;&#x975E;u&#x5F00;&#x5934;&#x7684;&#x884C;&#x5185;&#x5BB9; <code>cat test.txt |grep ^[^u]</code></li>
+<li>&#x8F93;&#x51FA;&#x4EE5;hat&#x7ED3;&#x5C3E;&#x7684;&#x884C;&#x5185;&#x5BB9; <code>cat test.txt |grep hat$</code></li>
+<li>&#x663E;&#x793A;&#x5305;&#x542B;ed&#x6216;&#x8005;at&#x5B57;&#x7B26;&#x7684;&#x5185;&#x5BB9;&#x884C;<code>cat test.txt |grep -E &quot;ed|at&quot;</code></li>
+</ul>
+<h2 id="sed-stream-editor">sed <em>&quot;stream editor&quot;</em></h2>
+<p>searches for a text pattern, modifies it, and outputs it.</p>
+<p><em>&#x5728;&#x7EBF;&#x7F16;&#x8F91;&#x5668;&#xFF0C;&#x5B83;&#x4E00;&#x6B21;&#x5904;&#x7406;&#x4E00;&#x884C;&#x5185;&#x5BB9;&#x3002;&#x5904;&#x7406;&#x65F6;&#xFF0C;&#x628A;&#x5F53;&#x524D;&#x5904;&#x7406;&#x7684;&#x884C;&#x5B58;&#x50A8;&#x5728;&#x4E34;&#x65F6;&#x7F13;&#x51B2;&#x533A;&#x4E2D;&#xFF0C;&#x79F0;&#x4E3A;&#x201C;&#x6A21;&#x5F0F;&#x7A7A;&#x95F4;&#x201D;&#xFF08;pattern space&#xFF09;&#xFF0C;&#x63A5;&#x7740;&#x7528;sed&#x547D;&#x4EE4;&#x5904;&#x7406;&#x7F13;&#x51B2;&#x533A;&#x4E2D;&#x7684;&#x5185;&#x5BB9;&#xFF0C;&#x5904;&#x7406;&#x5B8C;&#x6210;&#x540E;&#xFF0C;&#x628A;&#x7F13;&#x51B2;&#x533A;&#x7684;&#x5185;&#x5BB9;&#x9001;&#x5F80;&#x5C4F;&#x5E55;&#x3002;&#x63A5;&#x7740;&#x5904;&#x7406;&#x4E0B;&#x4E00;&#x884C;&#xFF0C;&#x8FD9;&#x6837;&#x4E0D;&#x65AD;&#x91CD;&#x590D;&#xFF0C;&#x76F4;&#x5230;&#x6587;&#x4EF6;&#x672B;&#x5C3E;&#x3002;&#x6587;&#x4EF6;&#x5185;&#x5BB9;&#x5E76;&#x6CA1;&#x6709; &#x6539;&#x53D8;&#xFF0C;&#x9664;&#x975E;&#x4F60;&#x4F7F;&#x7528;&#x91CD;&#x5B9A;&#x5411;&#x5B58;&#x50A8;&#x8F93;&#x51FA;</em></p>
+<pre><code>sed &apos;s/snow/rain/g&apos; somefile
+</code></pre><ul>
+<li>s: substitution&#x66FF;&#x6362;</li>
+<li>snow: the search string, the text to find.</li>
+<li>rain: the replacement string, the text to add in place.</li>
+<li>g: &quot;global&quot; not just first line</li>
+<li>nano command line editor</li>
+<li>zip -r &#x6587;&#x4EF6;&#x5939; -e &#x52A0;&#x5BC6; -i out-path <code>zip -re hadoop_client.zip hadoop_client</code></li>
+<li>wget <code>wget -r -c sh01...com:/home.../data/*</code></li>
+</ul>
+<h2 id="awk">awk</h2>
+<p><a href="http://coolshell.cn/articles/9070.html" target="_blank">doc</a></p>
+<ul>
+<li><code>awk &apos;{print $1, $4}&apos; netstat.txt #1&#x3001;4&#x5217;</code> </li>
+<li><code>awk &apos;$3==0 &amp;&amp; $6==&quot;LISTEN&quot; &apos; netstat.txt</code></li>
+<li><code>awk &apos; $3&gt;0 {printf &quot;%-20s %-20s %s\n&quot;,$4,$5,$6}&apos; netstat.txt</code></li>
+<li>&#x6307;&#x5B9A;&#x8F93;&#x5165;&#x5206;&#x9694;&#x7B26;<code>awk  &apos;BEGIN{FS=&quot;:&quot;} {print $1,$3,$6}&apos; /etc/passwd</code> or <code>awk  -F: &apos;{print $1,$3,$6}&apos; /etc/passwd</code> or&#x591A;&#x4E2A; <code>awk  -F&apos;[;:]&apos;</code></li>
+<li>&#x8F93;&#x51FA;&#x5206;&#x9694;&#x7B26; <code>awk  -F: &apos;{print $1,$3,$6}&apos; OFS=&quot;\t&quot; /etc/passwd</code></li>
+<li>&#x5B57;&#x7B26;&#x4E32;&#x5339;&#x914D; <code>awk &apos;$6 ~ /FIN|TIME/ || NR==1 {print NR,$4,$5,$6}&apos; OFS=&quot;\t&quot; netstat.txt</code></li>
+<li>grep&#x4E00;&#x6837;&#x7684;&#x5339;&#x914D;<code>$ awk &apos;/LISTEN/&apos; netstat.txt</code></li>
+<li>&#x53D6;&#x53CD; <code>awk &apos;!/WAIT/&apos; netstat.txt</code></li>
+<li>&#x6298;&#x5206;&#x6587;&#x4EF6; <ul>
+<li>&#x6309;&#x7B2C;&#x516D;&#x5217;&#x5206;&#x5272; <code>awk &apos;NR!=1{print &gt; $6}&apos; netstat.txt</code></li>
+<li><code>awk &apos;NR!=1{if($6 ~ /TIME|ESTABLISHED/) print &gt; &quot;1.txt&quot;;
+else if($6 ~ /LISTEN/) print &gt; &quot;2.txt&quot;;
+else print &gt; &quot;3.txt&quot; }&apos; netstat.txt</code></li>
+</ul>
+</li>
+<li>&#x7EDF;&#x8BA1;&#x6587;&#x4EF6;<ul>
+<li>&#x8BA1;&#x7B97;&#x6240;&#x6709;&#x7684;C&#x6587;&#x4EF6;&#xFF0C;CPP&#x6587;&#x4EF6;&#x548C;H&#x6587;&#x4EF6;&#x7684;&#x6587;&#x4EF6;&#x5927;&#x5C0F;&#x603B;&#x548C;<code>ls -l  *.cpp *.c *.h | awk &apos;{sum+=$5} END {print sum}&apos;</code></li>
+<li><code>awk &apos;NR!=1{a[$6]++;} END {for (i in a) print i &quot;, &quot; a[i];}&apos; netstat.txt</code></li>
+</ul>
+</li>
+</ul>
+<p>&#x5185;&#x5EFA;&#x53D8;&#x91CF;</p>
+<ul>
+<li>$0    &#x5F53;&#x524D;&#x8BB0;&#x5F55;&#xFF08;&#x8FD9;&#x4E2A;&#x53D8;&#x91CF;&#x4E2D;&#x5B58;&#x653E;&#x7740;&#x6574;&#x4E2A;&#x884C;&#x7684;&#x5185;&#x5BB9;&#xFF09;</li>
+<li>$1~$n    &#x5F53;&#x524D;&#x8BB0;&#x5F55;&#x7684;&#x7B2C;n&#x4E2A;&#x5B57;&#x6BB5;&#xFF0C;&#x5B57;&#x6BB5;&#x95F4;&#x7531;FS&#x5206;&#x9694;</li>
+<li>FS    &#x8F93;&#x5165;&#x5B57;&#x6BB5;&#x5206;&#x9694;&#x7B26; &#x9ED8;&#x8BA4;&#x662F;&#x7A7A;&#x683C;&#x6216;Tab</li>
+<li>NF    &#x5F53;&#x524D;&#x8BB0;&#x5F55;&#x4E2D;&#x7684;&#x5B57;&#x6BB5;&#x4E2A;&#x6570;&#xFF0C;&#x5C31;&#x662F;&#x6709;&#x591A;&#x5C11;&#x5217;</li>
+<li>NR    &#x5DF2;&#x7ECF;&#x8BFB;&#x51FA;&#x7684;&#x8BB0;&#x5F55;&#x6570;&#xFF0C;&#x5C31;&#x662F;&#x884C;&#x53F7;&#xFF0C;&#x4ECE;1&#x5F00;&#x59CB;&#xFF0C;&#x5982;&#x679C;&#x6709;&#x591A;&#x4E2A;&#x6587;&#x4EF6;&#x8BDD;&#xFF0C;&#x8FD9;&#x4E2A;&#x503C;&#x4E5F;&#x662F;&#x4E0D;&#x65AD;&#x7D2F;&#x52A0;&#x4E2D;&#x3002;</li>
+<li>FNR    &#x5F53;&#x524D;&#x8BB0;&#x5F55;&#x6570;&#xFF0C;&#x4E0E;NR&#x4E0D;&#x540C;&#x7684;&#x662F;&#xFF0C;&#x8FD9;&#x4E2A;&#x503C;&#x4F1A;&#x662F;&#x5404;&#x4E2A;&#x6587;&#x4EF6;&#x81EA;&#x5DF1;&#x7684;&#x884C;&#x53F7;</li>
+<li>RS    &#x8F93;&#x5165;&#x7684;&#x8BB0;&#x5F55;&#x5206;&#x9694;&#x7B26;&#xFF0C; &#x9ED8;&#x8BA4;&#x4E3A;&#x6362;&#x884C;&#x7B26;</li>
+<li>OFS    &#x8F93;&#x51FA;&#x5B57;&#x6BB5;&#x5206;&#x9694;&#x7B26;&#xFF0C; &#x9ED8;&#x8BA4;&#x4E5F;&#x662F;&#x7A7A;&#x683C;</li>
+<li>ORS    &#x8F93;&#x51FA;&#x7684;&#x8BB0;&#x5F55;&#x5206;&#x9694;&#x7B26;&#xFF0C;&#x9ED8;&#x8BA4;&#x4E3A;&#x6362;&#x884C;&#x7B26;</li>
+<li>FILENAME    &#x5F53;&#x524D;&#x8F93;&#x5165;&#x6587;&#x4EF6;&#x7684;&#x540D;&#x5B57;</li>
+</ul>
 
                     
                     </section>

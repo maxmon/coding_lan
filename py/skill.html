@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <title>1 | </title>
+        <title>技巧 | </title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 2.6.7">
@@ -37,10 +37,10 @@
         
     
     
-    <link rel="next" href="../lisp/2.html" />
+    <link rel="next" href="../py/libs.html" />
     
     
-    <link rel="prev" href="../lisp/common-lisp.html" />
+    <link rel="prev" href="../py/project.html" />
     
 
         
@@ -49,9 +49,9 @@
         
         
     <div class="book"
-        data-level="4.4.1"
-        data-chapter-title="1"
-        data-filepath="lisp/1.md"
+        data-level="4.2.5"
+        data-chapter-title="技巧"
+        data-filepath="py/skill.md"
         data-basepath=".."
         data-revision="Wed Aug 03 2016 16:30:00 GMT+0800 (CST)"
         data-innerlanguage="">
@@ -252,7 +252,7 @@
             
         </li>
     
-        <li class="chapter " data-level="4.2.5" data-path="py/skill.html">
+        <li class="chapter active" data-level="4.2.5" data-path="py/skill.html">
             
                 
                     <a href="../py/skill.html">
@@ -384,7 +384,7 @@
             <ul class="articles">
                 
     
-        <li class="chapter active" data-level="4.4.1" data-path="lisp/1.html">
+        <li class="chapter " data-level="4.4.1" data-path="lisp/1.html">
             
                 
                     <a href="../lisp/1.html">
@@ -954,23 +954,170 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="two-types-of-data-numbers-and-symbols">two types of data: numbers and symbols</h1>
-<h2 id="three-kinds-of-numbers">THREE KINDS OF NUMBERS</h2>
+                        <h2 id="&#x53C2;&#x8003;">&#x53C2;&#x8003;</h2>
 <ul>
-<li>integer</li>
-<li>float</li>
-<li>Ratios</li>
+<li><a href="http://pyzh.readthedocs.io/en/latest/python-hidden-features.html" target="_blank">Python&#x7684;&#x9690;&#x85CF;&#x7279;&#x6027;(StackOverflow)</a></li>
 </ul>
-<p>ORDEROF INPUTS IS IMPORTANT</p>
-<p>Symbols are another type of data in Lisp (like Symbols means string)</p>
-<h2 id="predicates-&#x65AD;&#x8A00;&#x51FD;&#x6570;-logic&#xFF08;boolean-function&#xFF09;">predicates &#x65AD;&#x8A00;&#x51FD;&#x6570; @logic&#xFF08;&amp;boolean function&#xFF09;</h2>
-<p>answer <code>T NIL</code></p>
-<p>Everything else is treated as yes</p>
-<h2 id="builtin-function">built-in function</h2>
-<p>Arithmetic functions: <code>+, -, *, /, ABS, SQRT</code></p>
-<p>Predicates:    <code>NUMBERP, SYMBOLP, ZEROP, ODDP, EVENP, &lt;, &gt;,
-EQUAL, NOT</code></p>
+<h2 id="list">list</h2>
+<pre><code>for i, e in enumerate(array)
+zeroes = [0] * 100
+spaces = 100 * &quot; &quot;
 
+#&#x60F3;&#x8981;&#x751F;&#x6210;&#x4E00;&#x4E2A;&#x957F;&#x94FE;&#x8868;&#x4F46;&#x662F;&#x5E76;&#x4E0D;&#x60F3;&#x628A;&#x5B83;&#x7ACB;&#x523B;&#x5B58;&#x5728;&#x5185;&#x5B58;
+for i in xrange(1000000000):
+</code></pre><h2 id="print">print</h2>
+<pre><code># Python2.7
+print &gt;&gt; sys.stderr, &quot;this is an error message&quot;
+
+print &gt;&gt;  file(&quot;myfile&quot;, &quot;w&quot;), &quot;hello world&quot;
+</code></pre><h2 id="exception">exception</h2>
+<pre><code>class MyException:
+    def __init__(self, value):
+        self.value = value
+    def __str__(self):
+        return `self.value`
+</code></pre><h2 id="path">path</h2>
+<p>sys.path # &#x67E5;&#x770B;&#x5F53;&#x524D;&#x7684;search path</p>
+<h2 id="&#x81EA;&#x7701;"><a href="http://www.cnblogs.com/huxi/archive/2011/01/02/1924317.html" target="_blank">&#x81EA;&#x7701;</a></h2>
+<ul>
+<li>help() some? #&#x67E5;&#x8BE2;&#x8BF4;&#x660E;&#x6587;&#x6863;</li>
+<li><code>__dict__</code>&#x6240;&#x6709;&#x5C5E;&#x6027;&#x952E;&#x503C;&#x5BF9;</li>
+<li>vars() &#x8FD4;&#x56DE; <code>__dict__</code> &#x5BF9;&#x8C61;&#x5C5E;&#x6027;</li>
+</ul>
+<pre><code>for property, value in vars(theObject).iteritems():
+    print property, &quot;: &quot;, value
+
+import inspect
+&gt;&gt;&gt; for attr, value in inspect.getmembers(obj):
+...     print attr, value
+</code></pre><p>inspect.getmembers &#x8FD4;&#x56DE;&#x7684;&#x662F;&#x5143;&#x7EC4; (attrname, value) &#x7684;&#x5217;&#x8868;&#x3002;&#x800C;&#x4E14;&#x662F;&#x6240;&#x6709;&#x7684;&#x5C5E;&#x6027;, &#x5305;&#x62EC; <code>__class__ , __doc__ , __dict__ , __init__</code>&#x7B49;&#x7279;&#x6B8A;&#x547D;&#x540D;&#x7684;&#x5C5E;&#x6027;&#x548C;&#x65B9;&#x6CD5;&#x3002;&#x800C; vars() &#x53EA;&#x8FD4;&#x56DE; <code>__dict__</code></p>
+<h2 id="&#x4E0B;&#x5212;&#x7EBF;"><a href="http://python.jobbole.com/81129/" target="_blank">&#x4E0B;&#x5212;&#x7EBF;</a></h2>
+<ul>
+<li>&#x5728;&#x89E3;&#x91CA;&#x5668;&#x4E2D;&#xFF1A;&#x5728;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&quot;_&quot;&#x4EE3;&#x8868;&#x4EA4;&#x4E92;&#x5F0F;&#x89E3;&#x91CA;&#x5668;&#x4F1A;&#x8BDD;&#x4E2D;&#x4E0A;&#x4E00;&#x6761;&#x6267;&#x884C;&#x7684;&#x8BED;&#x53E5;&#x7684;&#x7ED3;&#x679C;</li>
+<li>&quot;_&quot;&#x4F5C;&#x4E3A;&#x4E34;&#x65F6;&#x6027;&#x7684;&#x540D;&#x79F0;&#x4F7F;&#x7528; (var_name/function_name/class_name/file_name)<ul>
+<li><code>_name</code> API&#x4E2D;&#x975E;&#x516C;&#x5F00;&#x7684;&#x90E8;&#x5206;</li>
+<li><code>__name</code> &#x9632;&#x6B62;&#x5B50;&#x7C7B;&#x8986;&#x76D6; &#x89E3;&#x91CA;&#x5668;&#x81EA;&#x52A8;&#x6539;&#x5199;&#x4E3A; <code>&quot;_classname__name&quot;</code></li>
+<li><code>__name__</code> Python&#x4E2D;&#x7279;&#x6B8A;&#x7684;&#x65B9;&#x6CD5;&#x540D;&#x3002;&#x901A;&#x5E38;&#xFF0C;&#x4F60;&#x5C06;&#x4F1A;&#x8986;&#x5199;&#x8FD9;&#x4E9B;&#x65B9;&#x6CD5;&#xFF0C;&#x5E76;&#x5728;&#x91CC;&#x9762;&#x5B9E;&#x73B0;&#x4F60;&#x6240;&#x9700;&#x8981;&#x7684;&#x529F;&#x80FD;&#xFF0C;&#x4EE5;&#x4FBF;Python&#x8C03;&#x7528;&#x5B83;&#x4EEC;</li>
+</ul>
+</li>
+</ul>
+<h2 id="&#x63A8;&#x5BFC;&#x5F0F;">&#x63A8;&#x5BFC;&#x5F0F;</h2>
+<pre><code>results = [(x, y)
+           for x in range(10)
+           for y in range(10)
+           if x + y == 5
+           if x &gt; y]
+</code></pre><h2 id="magic-method">magic method</h2>
+<p><code>__some__</code> &#x64CD;&#x4F5C;&#x7B26;&#x91CD;&#x8F7D; &#x81EA;&#x7701;</p>
+<p><a href="http://pyzh.readthedocs.io/en/latest/python-magic-methods-guide.html" target="_blank">magic method1</a></p>
+<p><a href="http://www.cnblogs.com/huxi/archive/2011/01/02/1924317.html" target="_blank">magic method2</a></p>
+<h2 id="&#x65AD;&#x8A00;">&#x65AD;&#x8A00;</h2>
+<p>assert condition</p>
+<p>&#x4EC5;&#x7528;&#x505A;&#x9632;&#x5FA1;&#x578B;&#x7684;&#x7F16;&#x7A0B;&#xFF0C;&#x786E;&#x4FDD;&#x6309;&#x7EA6;&#x5B9A;&#x8FDB;&#x884C;&#x8BBE;&#x8BA1;</p>
+<h2 id="&#x88C5;&#x9970;&#x5668;">@&#x88C5;&#x9970;&#x5668;</h2>
+<p>@property</p>
+<pre><code>      @property
+      @deprecated(&quot;``residues_`` is deprecated&quot;)
+    def birth(self):
+        return self._birth
+
+    @birth.setter
+    def birth(self, value):
+        self._birth = value
+</code></pre><pre><code>from abc import ABCMeta, abstractmethod
+...
+class ...
+
+    @abstractmethod
+    @classmethod 
+    @raises(ValueError)
+    def some_func():
+        pass
+</code></pre><h2 id="dict-default">dict default</h2>
+<pre><code>val = dct.get(key, def_val)
+sum[value] = sum.get(value, 0) + 1
+
+val = dct.setdefault(key, def_val)
+dct = defaultdict(list)
+</code></pre><h2 id="list-&#x6B65;&#x957F;&#x4E0E;&#x53CD;&#x8F6C;">list &#x6B65;&#x957F;&#x4E0E;&#x53CD;&#x8F6C;</h2>
+<pre><code>&gt;&gt;&gt; a = [1, 2, 3, 4, 5]
+&gt;&gt;&gt; a[::2]
+[1, 3, 5]
+&gt;&gt;&gt; a[::-1]
+[5, 4, 3, 2, 1]
+</code></pre><h2 id="for-else">for else</h2>
+<p>else &#x8BED;&#x53E5;&#x5757;&#x4F1A;&#x5728;&#x5FAA;&#x73AF;&#x7ED3;&#x675F;&#x540E;&#x6267;&#x884C;&#xFF0C;&#x9664;&#x975E;&#x5728;&#x5FAA;&#x73AF;&#x5757;&#x4E2D;&#x6267;&#x884C; break</p>
+<pre><code>for i in (1, 3, 5):
+...     if i % 2 == 0:
+...         break
+... else:
+...     print &quot;var i is always an odd&quot;
+</code></pre><h2 id="tree">tree</h2>
+<pre><code>def tree(): return defaultdict(tree)
+</code></pre><h2 id="counter-py27-npunique">counter py2.7 np.unique</h2>
+<pre><code>&gt;&gt;&gt; from collections import Counter
+&gt;&gt;&gt; d = [1, 1, 1, 2, 2, 3, 1, 1]
+&gt;&gt;&gt; Counter(d)
+Counter({1: 5, 2: 2, 3: 1})
+
+&gt;&gt;&gt; counter = Counter()
+... for _ in range(10):
+...     num = int(raw_input(&quot;Enter a number: &quot;))
+...     counter.update([num])
+...
+... for key, value in counter.iteritems():
+...     print &quot;You have entered {}, {} times!&quot;.format(key, value)
+</code></pre><h2 id="&#x94FE;&#x5F0F;&#x6BD4;&#x8F83;">&#x94FE;&#x5F0F;&#x6BD4;&#x8F83;</h2>
+<pre><code>1 &lt; x &lt; 5
+</code></pre><h2 id="python&#x89E3;&#x91CA;&#x5668;&#x4E2D;&#x7684;">Python&#x89E3;&#x91CA;&#x5668;&#x4E2D;&#x7684;&#x201D;_&#x201D;</h2>
+<pre><code>&gt;&gt;&gt; range(4)
+[0, 1, 2, 3]
+&gt;&gt;&gt; _
+[0, 1, 2, 3]
+</code></pre><p>_ &#x5373;Python&#x89E3;&#x91CA;&#x5668;&#x4E0A;&#x4E00;&#x6B21;&#x8FD4;&#x56DE;&#x7684;&#x503C;</p>
+<h2 id="tryexceptelse">try/except/else</h2>
+<pre><code>try:
+  put_4000000000_volts_through_it(parrot)
+except Voom:
+  print &quot;&apos;E&apos;s pining!&quot;
+else:
+  print &quot;This parrot is no more!&quot;
+finally:
+  end_sketch()
+</code></pre><h2 id="zen">zen</h2>
+<p><code>import this</code></p>
+<h2 id="&#x7528;&#x5207;&#x7247;&#x6765;&#x5220;&#x9664;&#x5E8F;&#x5217;&#x7684;&#x67D0;&#x4E00;&#x6BB5;">&#x7528;&#x5207;&#x7247;&#x6765;&#x5220;&#x9664;&#x5E8F;&#x5217;&#x7684;&#x67D0;&#x4E00;&#x6BB5;</h2>
+<pre><code>&gt;&gt;&gt; a = [1, 2, 3, 4, 5, 6, 7]
+&gt;&gt;&gt; a[1:4] = []
+&gt;&gt;&gt; a
+[1, 5, 6, 7]
+&#x5F53;&#x7136;&#x7528; del a[1:4] &#x4E5F;&#x662F;&#x53EF;&#x4EE5;&#x7684;
+</code></pre><h2 id="isinstance&#x53EF;&#x4EE5;&#x63A5;&#x6536;&#x4E00;&#x4E2A;&#x5143;&#x7EC4;">isinstance&#x53EF;&#x4EE5;&#x63A5;&#x6536;&#x4E00;&#x4E2A;&#x5143;&#x7EC4;</h2>
+<pre><code>&gt;&gt;&gt; isinstance(1, (float, int))
+</code></pre><h2 id="&#x663E;&#x5F0F;&#x7684;&#x58F0;&#x660E;&#x4E00;&#x4E2A;&#x96C6;&#x5408;">&#x663E;&#x5F0F;&#x7684;&#x58F0;&#x660E;&#x4E00;&#x4E2A;&#x96C6;&#x5408;</h2>
+<pre><code>&gt;&gt;&gt; set([1,2,3])
+# &#x5728;Python 2.7 &#x4E4B;&#x540E;&#x53EF;&#x4EE5;&#x8FD9;&#x4E48;&#x5199;&#x4E86;:
+&gt;&gt;&gt; {1,2,3}
+</code></pre><h2 id="and-or">and or</h2>
+<pre><code> m_var = var or def_var
+</code></pre><h2 id="abc">abc</h2>
+<pre><code>from six import with_metaclass
+from abc import ABCMeta, abstractmethod
+
+class Parent(with_metaclass(ABCMeta, A, B)):
+
+    @abstractmethod
+    def my_method1(self, ...):
+
+    @abstractmethod
+    def my_method2(self, arg):
+        ...some impl...
+
+class Child(Parent):
+    ...
+    def my_method2(self, arg):
+        super(Child, self).my_method2(arg)
+</code></pre>
                     
                     </section>
                 
@@ -980,10 +1127,10 @@ EQUAL, NOT</code></p>
         </div>
 
         
-        <a href="../lisp/common-lisp.html" class="navigation navigation-prev " aria-label="Previous page: common-lisp"><i class="fa fa-angle-left"></i></a>
+        <a href="../py/project.html" class="navigation navigation-prev " aria-label="Previous page: 工程"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../lisp/2.html" class="navigation navigation-next " aria-label="Next page: 2"><i class="fa fa-angle-right"></i></a>
+        <a href="../py/libs.html" class="navigation navigation-next " aria-label="Next page: (desperated)常用类库"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>

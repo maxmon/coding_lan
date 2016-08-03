@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <title>python | </title>
+        <title>工程 | </title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 2.6.7">
@@ -37,10 +37,10 @@
         
     
     
-    <link rel="next" href="../py/base.html" />
+    <link rel="next" href="../py/skill.html" />
     
     
-    <link rel="prev" href="../regular-expression.html" />
+    <link rel="prev" href="../py/module.html" />
     
 
         
@@ -49,11 +49,11 @@
         
         
     <div class="book"
-        data-level="4.2"
-        data-chapter-title="python"
-        data-filepath="py/python.md"
+        data-level="4.2.4"
+        data-chapter-title="工程"
+        data-filepath="py/project.md"
         data-basepath=".."
-        data-revision="Fri Jul 15 2016 18:52:06 GMT+0800 (CST)"
+        data-revision="Wed Aug 03 2016 16:30:00 GMT+0800 (CST)"
         data-innerlanguage="">
     
 
@@ -176,10 +176,10 @@
             
         </li>
     
-        <li class="chapter active" data-level="4.2" data-path="py/python.html">
+        <li class="chapter " data-level="4.2" data-path="py/index.html">
             
                 
-                    <a href="../py/python.html">
+                    <a href="../py/index.html">
                 
                         <i class="fa fa-check"></i>
                         
@@ -201,7 +201,7 @@
                         
                             <b>4.2.1.</b>
                         
-                        python基础
+                        基础
                     </a>
             
             
@@ -216,35 +216,80 @@
                         
                             <b>4.2.2.</b>
                         
-                        python进阶
+                        进阶
                     </a>
             
             
         </li>
     
-        <li class="chapter " data-level="4.2.3" data-path="py/libs.html">
+        <li class="chapter " data-level="4.2.3" data-path="py/module.html">
+            
+                
+                    <a href="../py/module.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.2.3.</b>
+                        
+                        模块
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter active" data-level="4.2.4" data-path="py/project.html">
+            
+                
+                    <a href="../py/project.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.2.4.</b>
+                        
+                        工程
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.5" data-path="py/skill.html">
+            
+                
+                    <a href="../py/skill.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.2.5.</b>
+                        
+                        技巧
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.6" data-path="py/libs.html">
             
                 
                     <a href="../py/libs.html">
                 
                         <i class="fa fa-check"></i>
                         
-                            <b>4.2.3.</b>
+                            <b>4.2.6.</b>
                         
-                        python常用类库
+                        (desperated)常用类库
                     </a>
             
             
         </li>
     
-        <li class="chapter " data-level="4.2.4" data-path="py/ipython.html">
+        <li class="chapter " data-level="4.2.7" data-path="py/ipython.html">
             
                 
                     <a href="../py/ipython.html">
                 
                         <i class="fa fa-check"></i>
                         
-                            <b>4.2.4.</b>
+                            <b>4.2.7.</b>
                         
                         ipython
                     </a>
@@ -252,14 +297,14 @@
             
         </li>
     
-        <li class="chapter " data-level="4.2.5" data-path="py/numpy.html">
+        <li class="chapter " data-level="4.2.8" data-path="py/numpy.html">
             
                 
                     <a href="../py/numpy.html">
                 
                         <i class="fa fa-check"></i>
                         
-                            <b>4.2.5.</b>
+                            <b>4.2.8.</b>
                         
                         numpy
                     </a>
@@ -909,10 +954,74 @@
                 
                     <section class="normal" id="section-">
                     
-                        <blockquote>
-<p>There is only one way to do it</p>
-</blockquote>
-<p>Guido&#x5E0C;&#x671B;&#x6709;&#x4E00;&#x79CD;&#x8BED;&#x8A00;&#xFF0C;&#x8FD9;&#x79CD;&#x8BED;&#x8A00;&#x80FD;&#x591F;&#x50CF;C&#x8BED;&#x8A00;&#x90A3;&#x6837;&#xFF0C;&#x80FD;&#x591F;&#x5168;&#x9762;&#x8C03;&#x7528;&#x8BA1;&#x7B97;&#x673A;&#x7684;&#x529F;&#x80FD;&#x63A5;&#x53E3;&#xFF0C;&#x53C8;&#x53EF;&#x4EE5;&#x50CF;shell&#x90A3;&#x6837;&#xFF0C;&#x53EF;&#x4EE5;&#x8F7B;&#x677E;&#x7684;&#x7F16;&#x7A0B;</p>
+                        <h2 id="&#x5DE5;&#x7A0B;&#x76EE;&#x5F55;&#x7ED3;&#x6784;">&#x5DE5;&#x7A0B;&#x76EE;&#x5F55;&#x7ED3;&#x6784;</h2>
+<pre><code>.sub_package/*
+</code></pre><pre><code>.tests/*
+.tests/data/*
+...
+</code></pre><pre><code>.images/*
+</code></pre><pre><code>.data/*
+</code></pre><pre><code>.descr/*.rst
+</code></pre><pre><code>._some_so.so
+</code></pre><pre><code>__init.py__
+
+# SomeClass&#x9700;&#x8981;&#x58F0;&#x660E;import some_func&#x4E0D;&#x662F;&#x5FC5;&#x9700;
+from .package import SomeClassA, SomeClassB
+from .file import SomeClassC, [some_func]
+#set()
+
+__version__ = &quot;0.7.0&quot;
+
+__all__ = [&apos;SomeClassA&apos;,
+           &apos;some_func&apos;,
+           ...]
+</code></pre><h2 id="&#x5DE5;&#x7A0B;&#x6587;&#x4EF6;">&#x5DE5;&#x7A0B;&#x6587;&#x4EF6;</h2>
+<pre><code>from . import some_func
+from . import _some_so.so
+from .. import some_func, SomeClass
+
+from abc import ABCMeta, abstractmethod
+
+__all__ = [&apos;SomeClass&apos;,
+           &apos;some_func&apos;,
+           &apos;URL&apos;]
+__author__ = &apos;who&apos;
+__version__ = &apos;1.5.2&apos;
+
+URL = (&apos;http://archive.ics.uci.edu/ml/&apos;
+       &apos;machine-learning-databases/covtype/covtype.data.gz&apos;)
+_EPSILON = np.spacing(1)
+
+logger = logging.getLogger()
+
+try:
+    from urllib2 import urlopen
+except ImportError:
+    from urllib.request import urlopen
+
+try:
+    import urllib.request as urllib  # for backwards compatibility
+except ImportError:
+    import urllib
+
+class Child(six.with_metaclass(ABCMeta, Parent)):
+    &quot;&quot;&quot;Some doc&quot;&quot;&quot;
+    @abstractmethod
+    def _get_support_mask(self):
+
+    def get_support(self, indices=False):
+        pass
+
+    @classmethod
+    def get_support2(indices=False)
+
+###############################################################################
+# brife doc    
+def _some_fuc():
+    &quot;&quot;&quot;Some doc&quot;&quot;&quot;
+    pass
+</code></pre><h2 id="somefunc-or-someclass">some_func or SomeClass</h2>
+<p>&#x662F;&#x5426;&#x9700;&#x8981;&#x6301;&#x6709;&#x53D8;&#x91CF;/&#x5E38;&#x91CF;</p>
 
                     
                     </section>
@@ -923,10 +1032,10 @@
         </div>
 
         
-        <a href="../regular-expression.html" class="navigation navigation-prev " aria-label="Previous page: re正则表达式"><i class="fa fa-angle-left"></i></a>
+        <a href="../py/module.html" class="navigation navigation-prev " aria-label="Previous page: 模块"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../py/base.html" class="navigation navigation-next " aria-label="Next page: python基础"><i class="fa fa-angle-right"></i></a>
+        <a href="../py/skill.html" class="navigation navigation-next " aria-label="Next page: 技巧"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>

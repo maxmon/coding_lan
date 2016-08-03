@@ -53,7 +53,7 @@
         data-chapter-title="shell"
         data-filepath="shell.md"
         data-basepath="."
-        data-revision="Fri Jul 15 2016 18:52:06 GMT+0800 (CST)"
+        data-revision="Wed Aug 03 2016 16:30:00 GMT+0800 (CST)"
         data-innerlanguage="">
     
 
@@ -176,10 +176,10 @@
             
         </li>
     
-        <li class="chapter " data-level="4.2" data-path="py/python.html">
+        <li class="chapter " data-level="4.2" data-path="py/index.html">
             
                 
-                    <a href="./py/python.html">
+                    <a href="./py/index.html">
                 
                         <i class="fa fa-check"></i>
                         
@@ -201,7 +201,7 @@
                         
                             <b>4.2.1.</b>
                         
-                        python基础
+                        基础
                     </a>
             
             
@@ -216,35 +216,80 @@
                         
                             <b>4.2.2.</b>
                         
-                        python进阶
+                        进阶
                     </a>
             
             
         </li>
     
-        <li class="chapter " data-level="4.2.3" data-path="py/libs.html">
+        <li class="chapter " data-level="4.2.3" data-path="py/module.html">
+            
+                
+                    <a href="./py/module.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.2.3.</b>
+                        
+                        模块
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.4" data-path="py/project.html">
+            
+                
+                    <a href="./py/project.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.2.4.</b>
+                        
+                        工程
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.5" data-path="py/skill.html">
+            
+                
+                    <a href="./py/skill.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.2.5.</b>
+                        
+                        技巧
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.6" data-path="py/libs.html">
             
                 
                     <a href="./py/libs.html">
                 
                         <i class="fa fa-check"></i>
                         
-                            <b>4.2.3.</b>
+                            <b>4.2.6.</b>
                         
-                        python常用类库
+                        (desperated)常用类库
                     </a>
             
             
         </li>
     
-        <li class="chapter " data-level="4.2.4" data-path="py/ipython.html">
+        <li class="chapter " data-level="4.2.7" data-path="py/ipython.html">
             
                 
                     <a href="./py/ipython.html">
                 
                         <i class="fa fa-check"></i>
                         
-                            <b>4.2.4.</b>
+                            <b>4.2.7.</b>
                         
                         ipython
                     </a>
@@ -252,14 +297,14 @@
             
         </li>
     
-        <li class="chapter " data-level="4.2.5" data-path="py/numpy.html">
+        <li class="chapter " data-level="4.2.8" data-path="py/numpy.html">
             
                 
                     <a href="./py/numpy.html">
                 
                         <i class="fa fa-check"></i>
                         
-                            <b>4.2.5.</b>
+                            <b>4.2.8.</b>
                         
                         numpy
                     </a>
@@ -922,7 +967,7 @@
 <h2 id="var">var</h2>
 <p>$var</p>
 <p>&#x8F6C;&#x4E49; A backslash &quot;\&quot; is used to escape special character meaning</p>
-<p>&quot;&quot; &#x4FDD;&#x6301;&#x539F;&#x6837; Encapsulating the variable name with &quot;&quot; will preserve any white space values</p>
+<p>&quot;&quot; &#x4FDD;&#x6301;&#x539F;&#x6837;. Encapsulating the variable name with &quot;&quot; will preserve any white space values</p>
 <p>``  command&#x547D;&#x4EE4; (known as back-ticks) or with $() </p>
 <p>read var_name #get input</p>
 <h2 id="passing-arguments-to-the-script">Passing Arguments to the Script</h2>
@@ -933,15 +978,15 @@ echo $3 --&gt; results with: banana
 <h3 id="array">Array</h3>
 <ul>
 <li>my_array=()</li>
-<li>${my_array[n]}</li>
-<li>${#my_array[@]}-i #len - i</li>
+<li>${my_array[i]}</li>
+<li>${#my_array[@]} #len </li>
 </ul>
-<p>my_array=(apple banana &quot;Fruit Basket&quot; orange)
+<pre><code>my_array=(apple banana &quot;Fruit Basket&quot; orange)
 echo ${my_array[3]}                     # orange - note that curly brackets are needed
 my_array[4]=&quot;carrot&quot;                    # value assignment without a $ and curly brackets
 echo ${#my_array[@]}                    # 5
-echo ${my_array[${#my_array[@]}-1]}     # carrot</p>
-<h2 id="basic-arithmetic-operators">Basic Arithmetic Operators</h2>
+echo ${my_array[${#my_array[@]}-1]}     # carrot
+</code></pre><h2 id="basic-arithmetic-operators">Basic Arithmetic Operators</h2>
 <p>$((expression))</p>
 <ul>
 <li><ul>
@@ -969,24 +1014,25 @@ echo ${STRING:$POS:$LEN}   # his</code></li>
 </ul>
 </li>
 <li><p>Simple data extraction example:</p>
-<pre><code>  DATARECORD=&quot;last=Clifford,first=Johnny Boy,state=CA&quot;
-  COMMA1=`expr index &quot;$DATARECORD&quot; &apos;,&apos;`  # 14 position of first comma
-  CHOP1FIELD=${DATARECORD:$COMMA1}       #
-  COMMA2=`expr index &quot;$CHOP1FIELD&quot; &apos;,&apos;`
-  LENGTH=`expr $COMMA2 - 6 - 1`
-  FIRSTNAME=${CHOP1FIELD:6:$LENGTH}      # Johnny Boy
-  echo $FIRSTNAME
-</code></pre></li>
-<li><p>replace string</p>
-<pre><code>  STRING=&quot;to be or not to be&quot;
-  echo ${STRING[@]/be/eat}        # to eat or not to be
-  echo ${STRING[@]//be/eat}        # to eat or not to eat
-  echo ${STRING[@]/#to be/eat now}    # eat now or not to be #replace beginning
-  echo ${STRING[@]/%be/eat}        # to be or not to eat #replace end 
-  echo ${STRING[@]/%be/be on $(date +%Y-%m-%d)}    # to be or not to be on 2012-06-14 #replace occurrence of substring with shell command output
-</code></pre></li>
+</li>
 </ul>
-<h3 id="making-decision">Making Decision</h3>
+<pre><code>        DATARECORD=&quot;last=Clifford,first=Johnny Boy,state=CA&quot;
+        COMMA1=`expr index &quot;$DATARECORD&quot; &apos;,&apos;`  # 14 position of first comma
+        CHOP1FIELD=${DATARECORD:$COMMA1}       #
+        COMMA2=`expr index &quot;$CHOP1FIELD&quot; &apos;,&apos;`
+        LENGTH=`expr $COMMA2 - 6 - 1`
+        FIRSTNAME=${CHOP1FIELD:6:$LENGTH}      # Johnny Boy
+        echo $FIRSTNAME
+</code></pre><ul>
+<li>replace string</li>
+</ul>
+<pre><code>        STRING=&quot;to be or not to be&quot;
+        echo ${STRING[@]/be/eat}        # to eat or not to be
+        echo ${STRING[@]//be/eat}        # to eat or not to eat
+        echo ${STRING[@]/#to be/eat now}    # eat now or not to be #replace beginning
+        echo ${STRING[@]/%be/eat}        # to be or not to eat #replace end 
+        echo ${STRING[@]/%be/be on $(date +%Y-%m-%d)}    # to be or not to be on 2012-06-14 #replace occurrence of substring with shell command output
+</code></pre><h3 id="making-decision">Making Decision</h3>
 <ul>
 <li>== != &lt; &gt; </li>
 <li>-z &quot;$a&quot;&#x5224;&#x7A7A;</li>
@@ -1043,7 +1089,44 @@ done
 <pre><code>function adder {
       echo &quot;$(($1 + $2))&quot;
 }
-</code></pre>
+</code></pre><h2 id="&#x591A;&#x8FDB;&#x7A0B;">&#x591A;&#x8FDB;&#x7A0B;</h2>
+<ul>
+<li>sleep 1    &#x7761;&#x7720;1&#x79D2;</li>
+<li>sleep 1s    &#x7761;&#x7720;1&#x79D2;</li>
+<li>sleep 1m   &#x7761;&#x7720;1&#x5206;</li>
+<li>sleep 1h   &#x7761;&#x7720;1&#x5C0F;&#x65F6;</li>
+<li>wait [n] &#x7B49;&#x5F85;&#x8FDB;&#x7A0B;&#x53F7;&#x4E3A;n&#x7684;&#x540E;&#x53F0;&#x8FDB;&#x7A0B;&#x7EC8;&#x6B62;</li>
+</ul>
+<pre><code>...
+{command...} &amp; #&#x540E;&#x53F0;&#x8FDB;&#x7A0B;&#x6267;&#x884C;
+...
+wait #wait&#x524D;&#x9762;&#x540E;&#x53F0;&#x8FDB;&#x7A0B;&#x6267;&#x884C;&#x5B8C;&#x6BD5;
+</code></pre><h2 id="&#x53C2;&#x6570;&#x5904;&#x7406;">&#x53C2;&#x6570;&#x5904;&#x7406;</h2>
+<ul>
+<li>$#    &#x4F20;&#x9012;&#x5230;&#x811A;&#x672C;&#x7684;&#x53C2;&#x6570;&#x4E2A;&#x6570;</li>
+<li>$<em>    &#x4EE5;&#x4E00;&#x4E2A;&#x5355;&#x5B57;&#x7B26;&#x4E32;&#x663E;&#x793A;&#x6240;&#x6709;&#x5411;&#x811A;&#x672C;&#x4F20;&#x9012;&#x7684;&#x53C2;&#x6570;&#x3002;
+&#x5982;&quot;$</em>&quot;&#x7528;&#x300C;&quot;&#x300D;&#x62EC;&#x8D77;&#x6765;&#x7684;&#x60C5;&#x51B5;&#x3001;&#x4EE5;&quot;$1 $2 &#x2026; $n&quot;&#x7684;&#x5F62;&#x5F0F;&#x8F93;&#x51FA;&#x6240;&#x6709;&#x53C2;&#x6570;&#x3002;</li>
+<li>$$    &#x811A;&#x672C;&#x8FD0;&#x884C;&#x7684;&#x5F53;&#x524D;&#x8FDB;&#x7A0B;ID&#x53F7;</li>
+<li>$!    &#x540E;&#x53F0;&#x8FD0;&#x884C;&#x7684;&#x6700;&#x540E;&#x4E00;&#x4E2A;&#x8FDB;&#x7A0B;&#x7684;ID&#x53F7;</li>
+<li>$@    &#x4E0E;$<em>&#x76F8;&#x540C;&#xFF0C;&#x4F46;&#x662F;&#x4F7F;&#x7528;&#x65F6;&#x52A0;&#x5F15;&#x53F7;&#xFF0C;&#x5E76;&#x5728;&#x5F15;&#x53F7;&#x4E2D;<em>*&#x8FD4;&#x56DE;&#x6BCF;&#x4E2A;&#x53C2;&#x6570;</em></em>&#x3002;
+&#x5982;&quot;$@&quot;&#x7528;&#x300C;&quot;&#x300D;&#x62EC;&#x8D77;&#x6765;&#x7684;&#x60C5;&#x51B5;&#x3001;&#x4EE5;&quot;$1&quot; &quot;$2&quot; &#x2026; &quot;$n&quot; &#x7684;&#x5F62;&#x5F0F;&#x8F93;&#x51FA;&#x6240;&#x6709;&#x53C2;&#x6570;&#x3002;</li>
+<li>$-    &#x663E;&#x793A;Shell&#x4F7F;&#x7528;&#x7684;&#x5F53;&#x524D;&#x9009;&#x9879;&#xFF0C;&#x4E0E;set&#x547D;&#x4EE4;&#x529F;&#x80FD;&#x76F8;&#x540C;&#x3002;</li>
+<li>$?    &#x663E;&#x793A;&#x6700;&#x540E;&#x547D;&#x4EE4;&#x7684;&#x9000;&#x51FA;&#x72B6;&#x6001;&#x3002;0&#x8868;&#x793A;&#x6CA1;&#x6709;&#x9519;&#x8BEF;&#xFF0C;&#x5176;&#x4ED6;&#x4EFB;&#x4F55;&#x503C;&#x8868;&#x660E;&#x6709;&#x9519;&#x8BEF;&#x3002;</li>
+</ul>
+<h2 id="env">env</h2>
+<ul>
+<li>source makes the changes available right away <strong>in the session we are in</strong>.</li>
+<li>~/.bash_profile <strong>bash profile</strong> for current user</li>
+<li>alias <code>alias pd=&quot;pwd&quot;</code> ncommand allows you to create keyboard shortcuts, </li>
+<li>environment variables are variables that can be used across commands and programs and hold information about the environment.<ul>
+<li>$PATH $HOME</li>
+</ul>
+</li>
+<li>export makes the variable to be available to all child sessions initiated from the session you are in</li>
+<li>PS1 <code>export PS1=&quot;&gt;&gt; &quot;</code> PS1 is a variable that defines the makeup and style of the command prompt</li>
+<li>env returns a list of the environment variables for the current user</li>
+</ul>
+
                     
                     </section>
                 
