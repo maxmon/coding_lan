@@ -24,7 +24,7 @@ sort -r -n -k1 -k2 $midpath/step5_res >$midpath/step5_res_s
 	
 - -u 去重
 - -r 降序
-- -n 以数值来排序
+- -n 以数值来排序 / **文字、字符排序不能加-n,会出错**
 - -n -k1 -k2 以第一列,第二列排序数值大小排序
 - -f 忽略大小写
 ## uniq  `uniq ［-选项］ 文件` 

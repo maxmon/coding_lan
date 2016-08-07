@@ -8,11 +8,16 @@
 ```
 for i, e in enumerate(array)
 zeroes = [0] * 100
+nans = ('nan',) * 6
 spaces = 100 * " "
 
 #想要生成一个长链表但是并不想把它立刻存在内存
 for i in xrange(1000000000):
 ```
+
+## dict
+
+dict轮训keys的速度比list快的多
 
 ## print 
 
