@@ -39,3 +39,8 @@ class OldStyleClass():
     pass
 ```
 
+## Attempted relative import in non-package
+
+不能在一个包里运行一个脚本文件，顶层的脚本文件不能用相对导入
+
+如果要将一个包作为一个脚本运行的话，需要将运行的脚本文件更名为`__main__.py`，然后再该包文件夹外运行该包的命令:`python -m testpackage`

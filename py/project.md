@@ -1,4 +1,4 @@
-## 工程目录结构
+## package工程目录结构
 
 ```
 .sub_package/*
@@ -41,12 +41,10 @@ __all__ = ['SomeClassA',
            ...]
 ```
 
-
-
-
-
            
-## 工程文件
+## (package)工程文件
+
+package的py不能使用`__main__`，需在tests写测试代码
 
 ```
 from . import some_func

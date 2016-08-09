@@ -1,7 +1,5 @@
-
-init_pub.sh
+init.sh
 p.sh
-ap.sh
-fr.sh
-_book
 pub.sh
+fr.sh
+*.pyc
