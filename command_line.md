@@ -15,6 +15,7 @@
 - iconv -f编码 ```tail -n 5 | iconv -f GBK(utf8 ascii)```
 - head/tail -n(行数) -6(除去前/后6行) ``` head -n -6 log2014.log```
 - wc lines, words, characters ```wc -l path```
+- mdfind -name homebrew # spotsearch
 
 ## sort 
 
