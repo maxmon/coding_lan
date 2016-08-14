@@ -33,6 +33,7 @@
 		- <a href="#map"> map </a>
 		- <a href="#filter"> filter </a>
 		- <a href="#reduce"> reduce </a>
+	- <a href="#extend"> 继承 extend </a>
 - <a href="#skill"> skill </a>
 	- <a href="#写法"> 写法 </a>
 	- <a href="#skill_path"> path </a>
@@ -721,7 +722,58 @@ reduce()函数在3.0里面不能直接用的，它被定义在了functools包里
 reduce函数的第一个参数也是函数，但有一个要求，就是这个函数自身能接收两个参数。reduce可以累进地将函数作用于各个参数
 
 `reduce((lambda x,y: x+y),[1,2,5,7,9])` 相当于(((1+2)+5)+7)+9
-		
+
+<a name="extend" ></a>
+
+## abc 继承 extend
+
+abc
+
+```
+from six import with_metaclass
+from abc import ABCMeta, abstractmethod
+
+class Parent(with_metaclass(ABCMeta, A, B)):
+
+   @abstractmethod
+   def my_method1(self, ...):
+   
+   @abstractmethod
+   def my_method2(self, arg):
+           ...some impl...	
+```
+
+extend  `super(B, self).__init__()`
+
+```
+class A(object):
+
+    def __init__(self):
+        self.__prop = None
+
+    @property
+    def prop(self):
+        return self.__prop
+
+    @prop.setter
+    def prop(self, value):
+        self.__prop = value
+
+class B(A):
+
+    def __init__(self):
+        super(B, self).__init__()
+
+    @property
+    def prop(self):
+        return A.prop.fget(self)
+
+    @prop.setter
+    def prop(self, value):
+        value['extra'] = 'stuff'
+        A.prop.fset(self, value)
+```
+           	
 <a name="skill" ></a>
 
 # skill
