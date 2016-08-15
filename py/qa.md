@@ -44,3 +44,7 @@ class OldStyleClass():
 不能在一个包里运行一个脚本文件，顶层的脚本文件不能用相对导入
 
 如果要将一个包作为一个脚本运行的话，需要将运行的脚本文件更名为`__main__.py`，然后再该包文件夹外运行该包的命令:`python -m testpackage`
+
+## map操作 `cPickle.PicklingError: Can't pickle <type 'function'>: attribute lookup __builtin__.function failed`
+
+map操作需要将函数序列化,cpickle不能序列化 class的method(or lambda method),只能序列化function
