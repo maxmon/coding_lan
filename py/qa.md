@@ -48,3 +48,15 @@ class OldStyleClass():
 ## map操作 `cPickle.PicklingError: Can't pickle <type 'function'>: attribute lookup __builtin__.function failed`
 
 map操作需要将函数序列化,cpickle不能序列化 class的method(or lambda method),只能序列化function
+
+# os.rename vs shutil.move
+
+os.rename是按shell的`mv`实现的： os.rename(f1,f2)的操作是 `f1 -> del f1 to some buff -> create new f2`在多进程的io下会有buff被冲突
+
+即**os.remove(del)也是延迟缓冲类的操作**，os.remove 到重新写入很快是，会出现 `file_时间`的冲突文件
+
+#### **多进程下的文件写操作 **
+
+cp、rename、(remove) @`shutil.copyfile shutil.move shutil.rmtree `**
+
+其它创建文件、文件夹 不要多进程下执行

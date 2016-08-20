@@ -234,3 +234,16 @@ finally:
 ```
  m_var = var or def_var
 ```
+
+## with
+
+```
+class A(object):
+	def __enter__(self):
+		pass
+	def __exit__(self, type, value, traceback):
+		pass
+
+with A():
+	...
+```
