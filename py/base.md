@@ -773,6 +773,19 @@ class B(A):
         value['extra'] = 'stuff'
         A.prop.fset(self, value)
 ```
+
+另一种abc父类的方式
+
+```
+class PositionState(object):
+    def onEnter(self, position):
+        pass
+        
+	# 没被覆盖则throw error
+    def canSubmitOrder(self, position, order):
+        raise NotImplementedError()
+
+```
            	
 <a name="skill" ></a>
 
