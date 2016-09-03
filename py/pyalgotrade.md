@@ -1,7 +1,12 @@
+1. Declare a strategy/event
+1. Add feed
+1. Attach and Run the analysis.
+1. Plot the results.
+
 
 ## feed
 
-barfeed -> bar parser -> bars -> bardataseries( => SequenceDataSeries => DataSeries)
+barfeed -> barparser -> bars -> bardataseries( => SequenceDataSeries => DataSeries)
 
 自定制的BarFeed 多参考@GenericBarFeed/GenericRowParser in csvfeed.py
 
