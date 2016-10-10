@@ -22,6 +22,7 @@ barfeed -> barparser -> bars -> bardataseries( => SequenceDataSeries => DataSeri
 - LimitOrder 限价单
 - StopOrder 止损单
 - StopLimitOrder 止损限价单
+- long/short 多头/空头
 
 价格在commitOrderExecution 是price = fillInfo.getPrice()
 
